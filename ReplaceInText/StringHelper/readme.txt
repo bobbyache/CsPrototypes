@@ -1,0 +1,1 @@
+http://www.codeproject.com/Articles/10890/Fastest-C-Case-Insenstive-String-Replace
