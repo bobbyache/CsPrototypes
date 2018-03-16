@@ -1,0 +1,13 @@
+https://docs.microsoft.com/en-us/sql/reporting-services/application-integration/using-the-winforms-reportviewer-control
+
+Microsoft Report Viewer Runtime
+https://www.microsoft.com/en-us/download/details.aspx?id=45496
+
+*********************************************************
+Install from Package Manager Console:
+ Get-Project SsrsViewer | Install-Package Microsoft.ReportingServices.ReportViewerControl.WinForms
+
+Install and add to toolbox
+Add to toolbox:
+https://www.youtube.com/watch?v=bOnCfq04TXQ
+*********************************************************
