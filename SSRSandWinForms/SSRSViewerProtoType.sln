@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSRSViewerProtoType", "SSRS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SsrsViewer", "SsrsViewer\SsrsViewer.csproj", "{614CAA28-1710-41B8-953C-533E821803DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportsApplication1", "ReportsApplication1\ReportsApplication1.csproj", "{15FF93B2-1A44-4750-BFE7-6896C471B78B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{614CAA28-1710-41B8-953C-533E821803DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{614CAA28-1710-41B8-953C-533E821803DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{614CAA28-1710-41B8-953C-533E821803DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15FF93B2-1A44-4750-BFE7-6896C471B78B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15FF93B2-1A44-4750-BFE7-6896C471B78B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15FF93B2-1A44-4750-BFE7-6896C471B78B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15FF93B2-1A44-4750-BFE7-6896C471B78B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
