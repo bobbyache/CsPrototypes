@@ -39,6 +39,7 @@ namespace SSRSViewerPrototType.Repositories
             using (var dataAdapter = new SqlDataAdapter(commandBuilder.Command))
             {
                 commandBuilder.AddParameter<int?>("@SessionId", 521);
+                //commandBuilder.AddParameter<int?>("@SessionId", 521);
                 commandBuilder.AddParameter<int?>("@RuleId", null);
                 commandBuilder.AddParameter<string>("@RuleIdList", null);
                 commandBuilder.AddParameter<int?>("@RuleGroupId", null);
