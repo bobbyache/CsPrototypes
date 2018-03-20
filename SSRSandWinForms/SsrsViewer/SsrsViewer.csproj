@@ -66,11 +66,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoReport.cs" />
+    <Compile Include="CategorizedAutoReport.cs" />
+    <Compile Include="CategorizedReportViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IReportRenderer.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="ReportTypeEnum.cs" />
     <Compile Include="ReportViewer.cs">
       <SubType>UserControl</SubType>
     </Compile>
