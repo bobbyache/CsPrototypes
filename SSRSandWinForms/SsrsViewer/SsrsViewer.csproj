@@ -78,12 +78,25 @@
       <DependentUpon>ReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BreachHistoryReportRepository.cs" />
+    <Compile Include="Repositories\WeightVsLimitScheduleRepository.cs" />
     <Compile Include="SPC_DEV_H4CIDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SPC_DEV_H4CIDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SPC_DEV_H4CIDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPC_DEV_H4CIDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SPC_DEV_H4CIDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPC_DEV_H4CIDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="StoredProcedureCommandBuilder.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
@@ -119,9 +132,34 @@
     <None Include="SPC_DEV_H4CIDataSet.xss">
       <DependentUpon>SPC_DEV_H4CIDataSet.xsd</DependentUpon>
     </None>
+    <None Include="SPC_DEV_H4CIDataSet1.xsc">
+      <DependentUpon>SPC_DEV_H4CIDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SPC_DEV_H4CIDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SPC_DEV_H4CIDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SPC_DEV_H4CIDataSet1.xss">
+      <DependentUpon>SPC_DEV_H4CIDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="SPC_DEV_H4CIDataSet2.xsc">
+      <DependentUpon>SPC_DEV_H4CIDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="SPC_DEV_H4CIDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SPC_DEV_H4CIDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SPC_DEV_H4CIDataSet2.xss">
+      <DependentUpon>SPC_DEV_H4CIDataSet2.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Reports\WeightVsLimitSchedule.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="ReportViewer.resx">

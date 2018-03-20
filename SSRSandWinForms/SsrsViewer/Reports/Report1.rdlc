@@ -553,6 +553,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -1079,6 +1080,74 @@
       <rd:DataSetInfo>
         <rd:DataSetName>SPC_DEV_H4CIDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Work\Git\CsPrototypes\SSRSandWinForms\ReportsApplication1\SPC_DEV_H4CIDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>sp_BreachHistoryReport</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>sp_BreachHistoryReportTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="DataSet2">
+      <Query>
+        <DataSourceName>SPC_DEV_H4CIDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="SessionId">
+          <DataField>SessionId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="SessionDate">
+          <DataField>SessionDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="SessionType">
+          <DataField>SessionType</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BreachId">
+          <DataField>BreachId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioName">
+          <DataField>PortfolioName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RuleGroupName">
+          <DataField>RuleGroupName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RuleName">
+          <DataField>RuleName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BreachAge">
+          <DataField>BreachAge</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="AggregateType">
+          <DataField>AggregateType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AggregateName">
+          <DataField>AggregateName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProcessingResult">
+          <DataField>ProcessingResult</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="BreachFromDate">
+          <DataField>BreachFromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="BreachToDate">
+          <DataField>BreachToDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SPC_DEV_H4CIDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\Work\Git\CsPrototypes\SSRSandWinForms\SsrsViewer\SPC_DEV_H4CIDataSet.xsd</rd:SchemaPath>
         <rd:TableName>sp_BreachHistoryReport</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
