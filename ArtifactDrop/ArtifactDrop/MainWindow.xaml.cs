@@ -26,8 +26,15 @@ namespace ArtifactDrop
             this.Topmost = true;
             this.Activated += MainWindow_Activated;
             this.MouseDown += MainWindow_MouseDown;
+            this.MouseDoubleClick += MainWindow_MouseDoubleClick;
             //this.Drop += MainWindow_Drop;
 
+        }
+
+        private void MainWindow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            MessageBox.Show("Here you go!");
         }
 
         // Draw your own target: https://jeremybytes.blogspot.co.za/2009/03/wpf-xaml-sample.html
@@ -50,6 +57,8 @@ namespace ArtifactDrop
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+            else
+                MessageBox.Show("Display Menu");
         }
 
         private void MainWindow_Activated(object sender, EventArgs e)
