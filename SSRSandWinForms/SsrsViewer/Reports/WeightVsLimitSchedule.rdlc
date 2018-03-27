@@ -37,7 +37,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!PortfolioCode.Value</Value>
+                              <Value>=Fields!Code.Value</Value>
                               <Style>
                                 <FontSize>16pt</FontSize>
                               </Style>
@@ -85,7 +85,7 @@
                               </Style>
                             </TextRun>
                             <TextRun>
-                              <Value>=Fields!PortfolioDescription.Value</Value>
+                              <Value>=Fields!Description.Value</Value>
                               <Style>
                                 <FontSize>14pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -431,14 +431,14 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="PortfolioCode">
+              <Group Name="Code">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!PortfolioCode.Value</GroupExpression>
+                  <GroupExpression>=Fields!Code.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!PortfolioCode.Value</Value>
+                  <Value>=Fields!Code.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixMembers>
@@ -469,10 +469,10 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>WeightVsLimitScheduleDataSet</DataSetName>
+        <DataSetName>WeightVsLimitSchedule</DataSetName>
         <Top>2.93688cm</Top>
-        <Height>3.39687cm</Height>
-        <Width>21.23249cm</Width>
+        <Height>3.39688cm</Height>
+        <Width>21.23248cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -525,32 +525,52 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="SPC_DEV_H4CIDataSet2">
+    <DataSource Name="SPC_DEV_H4CIDataSet">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>e3c28382-ea49-4b36-a018-aeb635f90eb9</rd:DataSourceID>
+      <rd:DataSourceID>484168bf-858c-4724-b691-3e22fca141cc</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="WeightVsLimitScheduleDataSet">
+    <DataSet Name="WeightVsLimitSchedule">
       <Query>
-        <DataSourceName>SPC_DEV_H4CIDataSet2</DataSourceName>
+        <DataSourceName>SPC_DEV_H4CIDataSet</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="PortfolioCode">
-          <DataField>PortfolioCode</DataField>
+        <Field Name="Code">
+          <DataField>Code</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PortfolioDescription">
-          <DataField>PortfolioDescription</DataField>
+        <Field Name="Description">
+          <DataField>Description</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IsComposite">
+          <DataField>IsComposite</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+        <Field Name="PortfolioId">
+          <DataField>PortfolioId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CompositeId">
+          <DataField>CompositeId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="RuleId">
+          <DataField>RuleId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="RuleName">
           <DataField>RuleName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AggregateId">
+          <DataField>AggregateId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="AggregateDescription">
           <DataField>AggregateDescription</DataField>
@@ -570,8 +590,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>SPC_DEV_H4CIDataSet2</rd:DataSetName>
-        <rd:SchemaPath>C:\Work\Git\CsPrototypes\SSRSandWinForms\SsrsViewer\SPC_DEV_H4CIDataSet2.xsd</rd:SchemaPath>
+        <rd:DataSetName>SPC_DEV_H4CIDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\Work\Git\CsPrototypes\SSRSandWinForms\SsrsViewer\SPC_DEV_H4CIDataSet.xsd</rd:SchemaPath>
         <rd:TableName>sp_WeightVsLimitScheduleReport</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
