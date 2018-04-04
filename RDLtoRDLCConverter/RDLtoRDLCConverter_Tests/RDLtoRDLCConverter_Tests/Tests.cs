@@ -1,12 +1,7 @@
-﻿using System;
-using System.Runtime.Serialization;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Rdl2RdlcConverter;
 using System.IO;
 using System.Xml.Linq;
-using System.Xml.XPath;
-using System.Linq;
-using System.Collections;
-using Rdl2RdlcConverter;
 
 namespace RDLtoRDLCConverter_Tests
 {
@@ -14,6 +9,9 @@ namespace RDLtoRDLCConverter_Tests
     [DeploymentItem(@"ReportFiles\rptBreachHistory.rdl")]
     public class Tests
     {
+        private XNamespace xmlns = "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition";
+        private XNamespace xmlns_rd = "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner";
+
         [TestInitialize]
         public void Initialize()
         {
@@ -77,8 +75,18 @@ namespace RDLtoRDLCConverter_Tests
             var elements = creator.GetDataSetElements(document);
 
             Assert.AreEqual("DataSet1", elements[0].FirstAttribute.Value);
-            Assert.AreEqual("dsRef", elements[0].Element("DataSourceName").Value);
-            Assert.AreEqual("/* Local Query */", elements[0].Element("CommandText").Value);
+
+            Assert.IsNotNull(elements[0].Element(xmlns + "Query").Element(xmlns + "DataSourceName"));
+            Assert.IsNotNull(elements[0].Element(xmlns + "Query").Element(xmlns + "CommandText"));
+
+
+            Assert.AreEqual("dsRef", elements[0].Element(xmlns + "Query").Element(xmlns + "DataSourceName").Value);
+            Assert.AreEqual("/* Local Query */", elements[0].Element(xmlns + "Query").Element(xmlns + "CommandText").Value);
+
+            //Assert.AreEqual("dsRef", elements[0].Element(xmlns + "DataSourceName").Value);
+            //Assert.AreEqual("/* Local Query */", elements[0].Element(xmlns + "CommandText").Value);
+
+            Assert.IsNotNull(elements[0].Element(xmlns + "Fields"));
         }
 
         [TestMethod]

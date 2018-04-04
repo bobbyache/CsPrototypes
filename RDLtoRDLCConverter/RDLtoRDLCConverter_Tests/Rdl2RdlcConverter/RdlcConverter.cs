@@ -32,9 +32,19 @@ namespace Rdl2RdlcConverter
             foreach (XElement dataSet in dataSets)
             {
                 var dataSource = dataSet.Element(xmlns + "Query").Element(xmlns + "DataSourceName").Value;
+                XElement fieldsElement = dataSet.Element(xmlns + "Fields");
+
                 dataSet.RemoveNodes();
-                dataSet.Add(new XElement("DataSourceName", dataSource));
-                dataSet.Add(new XElement("CommandText", @"/* Local Query */"));
+
+                XElement queryElement = new XElement(xmlns + "Query",
+                    new XElement(xmlns + "DataSourceName", dataSource),
+                    new XElement(xmlns + "CommandText", @"/* Local Query */")
+                    );
+
+                //dataSet.Add(new XElement(xmlns + "DataSourceName", dataSource));
+                //dataSet.Add(new XElement(xmlns + "CommandText", @"/* Local Query */"));
+                dataSet.Add(queryElement);
+                dataSet.Add(fieldsElement);
             }
 
             XElement[] dataSources = GetDataSourceElements(document);
@@ -44,11 +54,14 @@ namespace Rdl2RdlcConverter
                 string name = dataSource.FirstAttribute.Value;
                 string id = GetDataSourceId(document, name);
 
-                dataSource.RemoveNodes();
+                
 
-                dataSource.Add(new XElement("ConnectionProperties",
-                    new XElement("DataProvider", "System.Data.DataSet"),
-                    new XElement("ConnectString", "/* Local Connection */")
+                dataSource.RemoveNodes();
+                
+
+                dataSource.Add(new XElement(xmlns + "ConnectionProperties",
+                    new XElement(xmlns + "DataProvider", "System.Data.DataSet"),
+                    new XElement(xmlns + "ConnectString", "/* Local Connection */")
                 ),
                 new XElement(
                     xmlns_rd + "DataSourceID", id
