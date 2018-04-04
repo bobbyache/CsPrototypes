@@ -20,9 +20,9 @@ namespace Rdl2Rdlc
         {
             // http://blog.stephencleary.com/2012/02/reporting-progress-from-async-tasks.html
 
-            if (!string.IsNullOrEmpty(lblFolderPath.Text))
+            if (!string.IsNullOrEmpty(lblSourceFolderPath.Text))
             {
-                btnConvert.Enabled = false;
+                ChangeUiStatus(true);
                 statusLabel.Text = "Converting...";
 
                 var progress = new Progress<int>(percent => {
@@ -31,24 +31,46 @@ namespace Rdl2Rdlc
 
                 await Task.Run(() => {
                     RdlFolderConverter converter = new RdlFolderConverter();
-                    converter.Convert(lblFolderPath.Text, progress);
+                    converter.Convert(lblSourceFolderPath.Text, progress, lblTargetFolderPath.Text);
                     });
 
-                btnConvert.Enabled = true;
+                ChangeUiStatus(false);
                 statusLabel.Text = "Done...";
             }
         }
 
-        private void btnSelect_Click(object sender, EventArgs e)
+        private void btnSourceFolder_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             DialogResult result = dialog.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                lblFolderPath.Text = dialog.SelectedPath;
+                lblSourceFolderPath.Text = dialog.SelectedPath;
+                if (string.IsNullOrEmpty(lblTargetFolderPath.Text))
+                    lblTargetFolderPath.Text = dialog.SelectedPath;
+
                 btnConvert.Enabled = true;
             }
+        }
+
+        private void btnTargetFolder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            DialogResult result = dialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                lblTargetFolderPath.Text = dialog.SelectedPath;
+            }
+        }
+
+        private void ChangeUiStatus(bool busy)
+        {
+            btnConvert.Enabled = !busy;
+            btnSourceFolder.Enabled = !busy;
+            btnTargetFolder.Enabled = !busy;
+            statusLabel.Text = (busy ? "Converting..." : "Done.");
         }
     }
 }

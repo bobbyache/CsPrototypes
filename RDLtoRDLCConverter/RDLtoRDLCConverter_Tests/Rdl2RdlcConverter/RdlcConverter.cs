@@ -9,13 +9,21 @@ namespace Rdl2RdlcConverter
         private XNamespace xmlns = "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition";
         private XNamespace xmlns_rd = "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner";
 
-        public void Convert(string filePath)
+        private string TargetFilePath(string targetFile, string targetFolder = null)
         {
-            if (Path.GetExtension(filePath).ToLower() != ".rdl")
+            if (!string.IsNullOrWhiteSpace(targetFolder))
+                return Path.Combine(targetFolder, Path.GetFileNameWithoutExtension(targetFile) + ".rdlc");
+            else
+                return Path.Combine(Path.GetDirectoryName(targetFile), Path.GetFileNameWithoutExtension(targetFile) + ".rdlc");
+        }
+
+        public void Convert(string targetFile, string targetFolder = null)
+        {
+            if (Path.GetExtension(targetFile).ToLower() != ".rdl")
                 throw new InvalidRdlFileException("The file extension is not recognised by the converter.");
 
-            string outputFilePath = Path.Combine(Path.GetDirectoryName(filePath), Path.GetFileNameWithoutExtension(filePath) + ".rdlc");
-            File.Copy(filePath, outputFilePath);
+            string outputFilePath = TargetFilePath(targetFile, targetFolder);
+            File.Copy(targetFile, outputFilePath, true);
 
             XDocument document = XDocument.Load(outputFilePath);
 
