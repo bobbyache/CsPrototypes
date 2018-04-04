@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace Rdl2RdlcConverter
 {
-    public class RdlcConverter
+    internal class RdlcConverter
     {
         private XNamespace xmlns = "http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition";
         private XNamespace xmlns_rd = "http://schemas.microsoft.com/SQLServer/reporting/reportdesigner";

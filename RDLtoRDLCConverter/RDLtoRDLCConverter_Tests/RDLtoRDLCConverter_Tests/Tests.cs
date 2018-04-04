@@ -17,8 +17,15 @@ namespace RDLtoRDLCConverter_Tests
         [TestInitialize]
         public void Initialize()
         {
-            if (File.Exists("rptBreachHistory.rdlc"))
-                File.Delete("rptBreachHistory.rdlc");
+            //if (File.Exists("rptBreachHistory.rdlc"))
+            //    File.Delete("rptBreachHistory.rdlc");
+        }
+
+        [TestCleanup]
+        public void TearDown()
+        {
+            //if (File.Exists("rptBreachHistory.rdlc"))
+            //    File.Delete("rptBreachHistory.rdlc");
         }
 
         [TestMethod]
