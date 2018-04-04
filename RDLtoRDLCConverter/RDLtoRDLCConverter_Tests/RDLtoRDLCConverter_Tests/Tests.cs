@@ -78,6 +78,7 @@ namespace RDLtoRDLCConverter_Tests
 
             Assert.IsNotNull(elements[0].Element(xmlns + "Query").Element(xmlns + "DataSourceName"));
             Assert.IsNotNull(elements[0].Element(xmlns + "Query").Element(xmlns + "CommandText"));
+            Assert.IsNotNull(elements[0].Element(xmlns + "Query").Element(xmlns + "QueryParameters"));
 
 
             Assert.AreEqual("dsRef", elements[0].Element(xmlns + "Query").Element(xmlns + "DataSourceName").Value);

@@ -33,16 +33,16 @@ namespace Rdl2RdlcConverter
             {
                 var dataSource = dataSet.Element(xmlns + "Query").Element(xmlns + "DataSourceName").Value;
                 XElement fieldsElement = dataSet.Element(xmlns + "Fields");
+                XElement queryParamsElement = dataSet.Element(xmlns + "Query").Element(xmlns + "QueryParameters");
 
                 dataSet.RemoveNodes();
 
                 XElement queryElement = new XElement(xmlns + "Query",
                     new XElement(xmlns + "DataSourceName", dataSource),
+                    queryParamsElement,
                     new XElement(xmlns + "CommandText", @"/* Local Query */")
                     );
 
-                //dataSet.Add(new XElement(xmlns + "DataSourceName", dataSource));
-                //dataSet.Add(new XElement(xmlns + "CommandText", @"/* Local Query */"));
                 dataSet.Add(queryElement);
                 dataSet.Add(fieldsElement);
             }
