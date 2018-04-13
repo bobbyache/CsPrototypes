@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prototypes.Gui.ApplicationShell"
+        xmlns:prism="http://www.codeplex.com/prism"
+        xmlns:inf="clr-namespace:Prototypes.Gui.Infrastucture;assembly=Prototypes.Gui.Infrastucture"
         mc:Ignorable="d"
         >
-    <Grid>
-        <TextBlock>Hello World</TextBlock>
-    </Grid>
+    <DockPanel LastChildFill="True">
+        <ItemsControl DockPanel.Dock="Top"  prism:RegionManager.RegionName="{x:Static inf:RegionNames.ToolbarRegion}" />
+        <ContentControl prism:RegionManager.RegionName="{x:Static inf:RegionNames.ContentRegion}" />
+    </DockPanel>
 </Window>
