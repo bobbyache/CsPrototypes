@@ -9,11 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{26A9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{5179C400-207D-4B3B-825F-AC1223E19D6B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Views", "Views", "{0EDF328D-F070-406E-A334-1ACE63328C98}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinFormUi", "WinFormUi", "{0EDF328D-F070-406E-A334-1ACE63328C98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototypes.Gui.Infrastucture", "Prototypes.Gui.Infrastucture\Prototypes.Gui.Infrastucture.csproj", "{DA04E88F-3D78-49EE-9794-0A0144688871}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototypes.Modules.ModuleA", "Prototypes.Modules.ModuleA\Prototypes.Modules.ModuleA.csproj", "{FA869DB5-1B96-4A98-9916-28EFE14FE1B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototypes.Modules.WinFormsHost", "Prototypes.Modules.WinFormsHost\Prototypes.Modules.WinFormsHost.csproj", "{A32305EA-F9F6-46CF-99B9-2EE7A8450FF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototypes.Gui.Winforms.Input", "Prototypes.Gui.Winforms.Input\Prototypes.Gui.Winforms.Input.csproj", "{A100850D-CBA0-451F-B1AF-A3E5BF488D50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,11 +37,21 @@ Global
 		{FA869DB5-1B96-4A98-9916-28EFE14FE1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA869DB5-1B96-4A98-9916-28EFE14FE1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA869DB5-1B96-4A98-9916-28EFE14FE1B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32305EA-F9F6-46CF-99B9-2EE7A8450FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32305EA-F9F6-46CF-99B9-2EE7A8450FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32305EA-F9F6-46CF-99B9-2EE7A8450FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32305EA-F9F6-46CF-99B9-2EE7A8450FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A100850D-CBA0-451F-B1AF-A3E5BF488D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A100850D-CBA0-451F-B1AF-A3E5BF488D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A100850D-CBA0-451F-B1AF-A3E5BF488D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A100850D-CBA0-451F-B1AF-A3E5BF488D50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FA869DB5-1B96-4A98-9916-28EFE14FE1B2} = {26A99625-D375-4195-8C74-E42CB72FECD2}
+		{A32305EA-F9F6-46CF-99B9-2EE7A8450FF0} = {26A99625-D375-4195-8C74-E42CB72FECD2}
+		{A100850D-CBA0-451F-B1AF-A3E5BF488D50} = {0EDF328D-F070-406E-A334-1ACE63328C98}
 	EndGlobalSection
 EndGlobal
