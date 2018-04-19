@@ -7,6 +7,8 @@ using System.Windows.Input;
 
 namespace ArtifactDrop
 {
+    // https://wpf.2000things.com/
+
     public static class DropTargetCommands
     {
         public static readonly RoutedUICommand Exit = new RoutedUICommand("Close", "Close", typeof(DropTargetCommands)
