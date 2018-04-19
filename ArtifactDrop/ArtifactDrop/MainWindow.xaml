@@ -10,6 +10,14 @@
         AllowsTransparency="True"
         ResizeMode="CanMinimize"
         >
+    <Window.Resources>
+        <!-- Having CommandParameter is crucial here -->
+        <ContextMenu x:Key="contextMenu">
+            <MenuItem Header="View" />
+            <MenuItem Header="Edit" />
+            <MenuItem Header="Delete" />
+        </ContextMenu>
+    </Window.Resources>
     <Border CornerRadius="40" Background="Black" AllowDrop="True" DragEnter="Image_DragEnter" Drop="Image_Drop">
     </Border>
 </Window>

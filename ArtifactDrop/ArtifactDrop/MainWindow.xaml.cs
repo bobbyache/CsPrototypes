@@ -27,8 +27,15 @@ namespace ArtifactDrop
             this.Activated += MainWindow_Activated;
             this.MouseDown += MainWindow_MouseDown;
             this.MouseDoubleClick += MainWindow_MouseDoubleClick;
+            this.PreviewDragOver += MainWindow_PreviewDragOver;
             //this.Drop += MainWindow_Drop;
 
+        }
+
+        private void MainWindow_PreviewDragOver(object sender, DragEventArgs e)
+        {
+            e.Handled = true;
+            //throw new NotImplementedException();
         }
 
         private void MainWindow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -49,7 +56,7 @@ namespace ArtifactDrop
 
                 // Assuming you have one file that you care about, pass it off to whatever
                 // handling code you have defined.
-                HandleFileOpen(files[0]);
+                HandleFileOpen(files);
             }
         }
 
@@ -58,7 +65,11 @@ namespace ArtifactDrop
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
             else
-                MessageBox.Show("Display Menu");
+            {
+                ContextMenu cm = this.FindResource("contextMenu") as ContextMenu;
+                cm.PlacementTarget = sender as Window;
+                cm.IsOpen = true;
+            }
         }
 
         private void MainWindow_Activated(object sender, EventArgs e)
@@ -67,9 +78,9 @@ namespace ArtifactDrop
             this.Activate();
         }
 
-        private void HandleFileOpen(string file)
+        private void HandleFileOpen(string[] files)
         {
-
+            MessageBox.Show(string.Join(Environment.NewLine, files));
         }
 
         private void Image_DragEnter(object sender, DragEventArgs e)
