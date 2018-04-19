@@ -10,12 +10,17 @@
         AllowsTransparency="True"
         ResizeMode="CanMinimize"
         >
+    <Window.CommandBindings>
+        <CommandBinding Command="local:DropTargetCommands.Exit" Executed="CommandBinding_Executed" CanExecute="CommandBinding_CanExecute" />
+    </Window.CommandBindings>
     <Window.Resources>
         <!-- Having CommandParameter is crucial here -->
         <ContextMenu x:Key="contextMenu">
             <MenuItem Header="View" />
             <MenuItem Header="Edit" />
-            <MenuItem Header="Delete" />
+            <Separator />
+            <MenuItem Header="Close" Command="local:DropTargetCommands.Exit" CommandTarget="{Binding Path=PlacementTarget, RelativeSource={RelativeSource AncestorType=ContextMenu}}" />
+
         </ContextMenu>
     </Window.Resources>
     <Border CornerRadius="40" Background="Black" AllowDrop="True" DragEnter="Image_DragEnter" Drop="Image_Drop">
