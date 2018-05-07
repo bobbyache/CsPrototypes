@@ -14,8 +14,9 @@ namespace PluginConsole
         static void Main(string[] args)
         {
             PluginService<IPlugin> pluginService = new PluginService<IPlugin>();
+            string pluginDirectory = Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "Plugins");
 
-            List<IPlugin> plugins = pluginService.LoadPlugins(Path.Combine( AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "Plugins"));
+            List<IPlugin> plugins = pluginService.LoadPlugins(pluginDirectory, PluginDirectoryScanningBehaviour.RootFolder);
 
             foreach (IPlugin plugin in plugins)
             {
