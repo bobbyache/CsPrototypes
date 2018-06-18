@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<importConfiguration last-modified="2018-06-14T15:08:27.613608+02:00" import-type="Batch">
+   <Tables>
+      <Table table-name="RatingScale" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="Issuer" source-view-name="vw_compliance_export_Issuer" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="Description" />
+            <Mapping parameter-name="@i_code" field-name="Code" />
+         </Mappings>
+      </Table>
+      <Table table-name="EntityValue" source-view-name="vw_compliance_export_EntityValue" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_entitytype" field-name="EntityTypeCode" />
+            <Mapping parameter-name="@i_code" field-name="Code" />
+            <Mapping parameter-name="@i_description" field-name="Description" />
+         </Mappings>
+      </Table>
+      <Table table-name="PortfolioTradeIntraDay" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_brokercode" field-name="" />
+            <Mapping parameter-name="@i_transactioneffect" field-name="" />
+            <Mapping parameter-name="@i_effectiveexposure" field-name="" />
+            <Mapping parameter-name="@i_cashaccountinstrumentcode" field-name="" />
+            <Mapping parameter-name="@i_portfoliocode" field-name="" />
+            <Mapping parameter-name="@i_settlementamount" field-name="" />
+            <Mapping parameter-name="@i_marketvalue" field-name="" />
+            <Mapping parameter-name="@i_transactionreference" field-name="" />
+            <Mapping parameter-name="@i_quantity" field-name="" />
+            <Mapping parameter-name="@i_dateentered" field-name="" />
+            <Mapping parameter-name="@i_transactiontypecode" field-name="" />
+            <Mapping parameter-name="@i_instrumentcode" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="RatingAgencyRating" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_ratingtype" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+            <Mapping parameter-name="@i_ratingterm" field-name="" />
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_rank" field-name="" />
+            <Mapping parameter-name="@i_ratingagencycode" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="Broker" source-view-name="vw_compliance_export_Broker" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="Description" />
+            <Mapping parameter-name="@i_code" field-name="Code" />
+         </Mappings>
+      </Table>
+      <Table table-name="Country" source-view-name="vw_compliance_export_Country" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="Description" />
+            <Mapping parameter-name="@i_code" field-name="Code" />
+         </Mappings>
+      </Table>
+      <Table table-name="PortfolioIssuer" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_issuercode" field-name="" />
+            <Mapping parameter-name="@i_percentexposure" field-name="" />
+            <Mapping parameter-name="@i_portfoliocode" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="InstrumentType" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="PortfolioHolding" source-view-name="vw_compliance_export_PortfolioHolding" bulk-copy="true" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_embargoholding" field-name="EmbargoHolding" />
+            <Mapping parameter-name="@i_tradedbookvalue" field-name="TradedBookValue" />
+            <Mapping parameter-name="@i_confirmedmarketvalue" field-name="ConfirmedMarketValue" />
+            <Mapping parameter-name="@i_tradedholding" field-name="TradedHolding" />
+            <Mapping parameter-name="@i_orderedmarketvalue" field-name="OrderedMarketValue" />
+            <Mapping parameter-name="@i_settledbookvalue" field-name="SettledBookValue" />
+            <Mapping parameter-name="@i_instrumentcode" field-name="InstrumentCode" />
+            <Mapping parameter-name="@i_orderedholding" field-name="OrderedHolding" />
+            <Mapping parameter-name="@i_settledholding" field-name="SettledHolding" />
+            <Mapping parameter-name="@i_settledeffectiveexposure" field-name="SettledEffectiveExposure" />
+            <Mapping parameter-name="@i_portfoliocode" field-name="PortfolioCode" />
+            <Mapping parameter-name="@i_tradedmarketvalue" field-name="TradedMarketValue" />
+            <Mapping parameter-name="@i_tradedeffectiveexposure" field-name="TradedEffectiveExposure" />
+            <Mapping parameter-name="@i_settledmarketvalue" field-name="SettledMarketValue" />
+            <Mapping parameter-name="@i_scriponloan" field-name="ScripOnLoan" />
+            <Mapping parameter-name="@i_confirmedeffectiveexposure" field-name="ConfirmedEffectiveExposure" />
+            <Mapping parameter-name="@i_orderedbookvalue" field-name="OrderedBookValue" />
+            <Mapping parameter-name="@i_confirmedholding" field-name="ConfirmedHolding" />
+            <Mapping parameter-name="@i_confirmedbookvalue" field-name="ConfirmedBookValue" />
+            <Mapping parameter-name="@i_orderedeffectiveexposure" field-name="OrderedEffectiveExposure" />
+         </Mappings>
+      </Table>
+      <Table table-name="PortfolioType" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="PortfolioTrade" source-view-name="vw_compliance_export_PortfolioTrade" bulk-copy="true" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_settlementdate" field-name="SettlementDate" />
+            <Mapping parameter-name="@i_dealnumber" field-name="DealNumber" />
+            <Mapping parameter-name="@i_consideration" field-name="Consideration" />
+            <Mapping parameter-name="@i_portfoliocode" field-name="PortfolioCode" />
+            <Mapping parameter-name="@i_brokercode" field-name="BrokerCode" />
+            <Mapping parameter-name="@i_price" field-name="Price" />
+            <Mapping parameter-name="@i_dealdate" field-name="DealDate" />
+            <Mapping parameter-name="@i_dateentered" field-name="DateEntered" />
+            <Mapping parameter-name="@i_transactiontypecode" field-name="TransactionTypeCode" />
+            <Mapping parameter-name="@i_nominal" field-name="Nominal" />
+            <Mapping parameter-name="@i_instrumentcode" field-name="InstrumentCode" />
+         </Mappings>
+      </Table>
+      <Table table-name="IssuerType" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="Exchange" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="BenchMarkDetail" source-view-name="vw_compliance_export_BenchmarkDetail" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_componentcode" field-name="ComponentCode" />
+            <Mapping parameter-name="@i_componentweighting" field-name="ComponentWeighting" />
+            <Mapping parameter-name="@i_entitytypecode" field-name="EntityTypeCode" />
+            <Mapping parameter-name="@i_benchmarksummarycode" field-name="BenchMarkSummaryCode" />
+            <Mapping parameter-name="@i_benchmarktype" field-name="BenchMarkTypeCode" />
+         </Mappings>
+      </Table>
+      <Table table-name="RatingAgency" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="IssuerRating" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_ratingtype" field-name="" />
+            <Mapping parameter-name="@i_issuercode" field-name="" />
+            <Mapping parameter-name="@i_ratingterm" field-name="" />
+            <Mapping parameter-name="@i_ratingcode" field-name="" />
+            <Mapping parameter-name="@i_ratingdate" field-name="" />
+            <Mapping parameter-name="@i_ratingagencycode" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="EntityType" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="Portfolio" source-view-name="vw_compliance_export_Portfolio" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="Description" />
+            <Mapping parameter-name="@i_code" field-name="Code" />
+         </Mappings>
+      </Table>
+      <Table table-name="PortfolioOrder" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_transactiontypecode" field-name="" />
+            <Mapping parameter-name="@i_pricelimit" field-name="" />
+            <Mapping parameter-name="@i_instrumentcode" field-name="" />
+            <Mapping parameter-name="@i_nominal" field-name="" />
+            <Mapping parameter-name="@i_portfoliocode" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="BenchMarkSummary" source-view-name="vw_compliance_export_BenchmarkSummary" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="Description" />
+            <Mapping parameter-name="@i_code" field-name="Code" />
+            <Mapping parameter-name="@i_entitytypecode" field-name="EntityTypeCode" />
+            <Mapping parameter-name="@i_benchmarktype" field-name="BenchMarkTypeCode" />
+         </Mappings>
+      </Table>
+      <Table table-name="InstrumentRating" source-view-name="vw_compliance_export_InstrumentRating" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_ratingtype" field-name="RatingType" />
+            <Mapping parameter-name="@i_ratingterm" field-name="Term" />
+            <Mapping parameter-name="@i_instrumentcode" field-name="InstrumentCode" />
+            <Mapping parameter-name="@i_ratingcode" field-name="RatingCode" />
+            <Mapping parameter-name="@i_ratingdate" field-name="RatingDate" />
+            <Mapping parameter-name="@i_ratingagencycode" field-name="RatingAgency" />
+         </Mappings>
+      </Table>
+      <Table table-name="TransactionType" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="" />
+            <Mapping parameter-name="@i_code" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="Instrument" source-view-name="vw_compliance_export_instrument" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="Description" />
+            <Mapping parameter-name="@i_code" field-name="Code" />
+         </Mappings>
+      </Table>
+      <Table table-name="RatingScaleBand" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_ratingtype" field-name="" />
+            <Mapping parameter-name="@i_ratingterm" field-name="" />
+            <Mapping parameter-name="@i_ratingcode" field-name="" />
+            <Mapping parameter-name="@i_ratingscalecode" field-name="" />
+            <Mapping parameter-name="@i_band" field-name="" />
+            <Mapping parameter-name="@i_ratingagencycode" field-name="" />
+         </Mappings>
+      </Table>
+      <Table table-name="Currency" source-view-name="vw_compliance_export_Currency" bulk-copy="false" enabled="true">
+         <Mappings>
+            <Mapping parameter-name="@i_description" field-name="Description" />
+            <Mapping parameter-name="@i_code" field-name="Code" />
+         </Mappings>
+      </Table>
+      <Table table-name="PortfolioHoldingIntraDay" source-view-name="" bulk-copy="false" enabled="false">
+         <Mappings>
+            <Mapping parameter-name="@i_embargoholding" field-name="" />
+            <Mapping parameter-name="@i_tradedbookvalue" field-name="" />
+            <Mapping parameter-name="@i_confirmedmarketvalue" field-name="" />
+            <Mapping parameter-name="@i_tradedholding" field-name="" />
+            <Mapping parameter-name="@i_orderedmarketvalue" field-name="" />
+            <Mapping parameter-name="@i_settledbookvalue" field-name="" />
+            <Mapping parameter-name="@i_instrumentcode" field-name="" />
+            <Mapping parameter-name="@i_orderedholding" field-name="" />
+            <Mapping parameter-name="@i_settledholding" field-name="" />
+            <Mapping parameter-name="@i_settledeffectiveexposure" field-name="" />
+            <Mapping parameter-name="@i_portfoliocode" field-name="" />
+            <Mapping parameter-name="@i_tradedmarketvalue" field-name="" />
+            <Mapping parameter-name="@i_tradedeffectiveexposure" field-name="" />
+            <Mapping parameter-name="@i_settledmarketvalue" field-name="" />
+            <Mapping parameter-name="@i_scriponloan" field-name="" />
+            <Mapping parameter-name="@i_confirmedeffectiveexposure" field-name="" />
+            <Mapping parameter-name="@i_orderedbookvalue" field-name="" />
+            <Mapping parameter-name="@i_confirmedholding" field-name="" />
+            <Mapping parameter-name="@i_confirmedbookvalue" field-name="" />
+            <Mapping parameter-name="@i_orderedeffectiveexposure" field-name="" />
+         </Mappings>
+      </Table>
+   </Tables>
+   <Attributes>
+      <Attribute attribute-table-name="Rule" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="RuleCode" field-name="" />
+            <Mapping attribute-type-name="WeightScheduleReport_SubDescription" field-name="" />
+            <Mapping attribute-type-name="WeightScheduleReport_DisplayAggregate" field-name="" />
+            <Mapping attribute-type-name="WeightScheduleReport_Description" field-name="" />
+            <Mapping attribute-type-name="WeightScheduleReport_Indent" field-name="" />
+            <Mapping attribute-type-name="WeightScheduleReport_Item" field-name="" />
+            <Mapping attribute-type-name="WeightScheduleReport_Order" field-name="" />
+            <Mapping attribute-type-name="WeightScheduleReport_IncludeInReport" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="PortfolioRule" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="PortfolioCode" field-name="" />
+            <Mapping attribute-type-name="ComplianceRuleName" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="PortfolioInstrument" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="PortfolioCode" field-name="" />
+            <Mapping attribute-type-name="InstrumentCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="Portfolio" source-view-name="vw_compliance_export_Portfolio" enabled="true">
+         <Mappings>
+            <Mapping attribute-type-name="AccountNumber" field-name="AccountNumber" />
+            <Mapping attribute-type-name="NumberofSectors" field-name="NumberofSectors" />
+            <Mapping attribute-type-name="PortfolioManager" field-name="" />
+            <Mapping attribute-type-name="ActiveIndicator" field-name="ActiveIndicator" />
+            <Mapping attribute-type-name="PortfolioCode" field-name="Code" />
+            <Mapping attribute-type-name="CurrencyCode" field-name="CurrencyCode" />
+            <Mapping attribute-type-name="NAV" field-name="NAV" />
+            <Mapping attribute-type-name="DateCreated" field-name="DateCreated" />
+            <Mapping attribute-type-name="Composite" field-name="Composite" />
+            <Mapping attribute-type-name="PortfolioTypeCode" field-name="PortfolioTypeCode" />
+            <Mapping attribute-type-name="ExplodePortfolioIndicator" field-name="" />
+            <Mapping attribute-type-name="CountryCode" field-name="CountryCode" />
+            <Mapping attribute-type-name="PortfolioManagerEmail" field-name="" />
+            <Mapping attribute-type-name="CompositeIndicator" field-name="CompositeIndicator" />
+            <Mapping attribute-type-name="IncludeUnexplodedIndicator" field-name="" />
+            <Mapping attribute-type-name="BenchmarkCode" field-name="BenchmarkCode" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="PortfolioBreachStatus" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="PortfolioCode" field-name="" />
+            <Mapping attribute-type-name="ComplianceBreachStatusCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="BenchMarkDetail" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="BenchmarkType" field-name="" />
+            <Mapping attribute-type-name="BenchmarkCode" field-name="" />
+            <Mapping attribute-type-name="ConstituentCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="PortfolioHolding" source-view-name="vw_compliance_export_PortfolioHolding" enabled="true">
+         <Mappings>
+            <Mapping attribute-type-name="PortfolioCode" field-name="PortfolioCode" />
+            <Mapping attribute-type-name="PositionType" field-name="PositionType" />
+            <Mapping attribute-type-name="GovFactor" field-name="GovFactor" />
+            <Mapping attribute-type-name="OptionPositionType" field-name="OptionPositionType" />
+            <Mapping attribute-type-name="InstrumentCode" field-name="InstrumentCode" />
+            <Mapping attribute-type-name="ParFactor" field-name="ParFactor" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="Currency" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="ExchangeRate" field-name="" />
+            <Mapping attribute-type-name="CurrencyCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="PortfolioType" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="PortfolioTypeCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="InstrumentCountryOfIssue" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="NoMarketIndicator" field-name="" />
+            <Mapping attribute-type-name="MSCIWorldIndicator" field-name="" />
+            <Mapping attribute-type-name="MSCIEmergingMarketsIndicator" field-name="" />
+            <Mapping attribute-type-name="InstrumentCountryOfIssueCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="Issuer" source-view-name="vw_compliance_export_Issuer" enabled="true">
+         <Mappings>
+            <Mapping attribute-type-name="IssuerType" field-name="IssuerType" />
+            <Mapping attribute-type-name="IssuerCode" field-name="Code" />
+            <Mapping attribute-type-name="VotingRights" field-name="" />
+            <Mapping attribute-type-name="ListedIndicator" field-name="ListedIndicator" />
+            <Mapping attribute-type-name="CountryCode" field-name="CountryCode" />
+            <Mapping attribute-type-name="InternationalRatedIndicator" field-name="InternationalRatedIndicator" />
+            <Mapping attribute-type-name="RatedIndicator" field-name="RatedIndicator" />
+            <Mapping attribute-type-name="DateCreated" field-name="DateCreated" />
+            <Mapping attribute-type-name="MarketCapitalisation" field-name="MarketCapitalisation" />
+            <Mapping attribute-type-name="GovernmentIndicator" field-name="" />
+            <Mapping attribute-type-name="IssuerGroupCode" field-name="IssuerGroupCode" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="Country" source-view-name="vw_compliance_export_Country" enabled="true">
+         <Mappings>
+            <Mapping attribute-type-name="NoMarketIndicator" field-name="NoMarketIndicator" />
+            <Mapping attribute-type-name="CountryCode" field-name="Code" />
+            <Mapping attribute-type-name="MSCIWorldIndicator" field-name="MSCIWorldIndicator" />
+            <Mapping attribute-type-name="Region" field-name="Region" />
+            <Mapping attribute-type-name="MSCIEmergingMarketsIndicator" field-name="MSCIEmergingMarketsIndicator" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="PortfolioHoldingIntraDay" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="PortfolioCode" field-name="" />
+            <Mapping attribute-type-name="InstrumentCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="BenchMarks" source-view-name="vw_compliance_export_BenchmarkSummary" enabled="true">
+         <Mappings>
+            <Mapping attribute-type-name="IndexInstrumentCode" field-name="IndexInstrumentCode" />
+            <Mapping attribute-type-name="PortfolioIssuerLimit" field-name="PortfolioIssuerLimit" />
+            <Mapping attribute-type-name="BenchMarksCode" field-name="Code" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="Breach" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="BreachCode" field-name="" />
+            <Mapping attribute-type-name="DateApprovalRequested" field-name="" />
+            <Mapping attribute-type-name="DateApprovalGranted" field-name="" />
+            <Mapping attribute-type-name="CANotify" field-name="" />
+            <Mapping attribute-type-name="BreachLowerLimit" field-name="" />
+            <Mapping attribute-type-name="CurrentLimit" field-name="" />
+            <Mapping attribute-type-name="NextLimit" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="BreachStatus" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="BreachStatusCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="Instrument" source-view-name="vw_compliance_export_instrument" enabled="true">
+         <Mappings>
+            <Mapping attribute-type-name="IndustryMSCI" field-name="IndustryMSCI" />
+            <Mapping attribute-type-name="Duration" field-name="" />
+            <Mapping attribute-type-name="LikeInstrumentCode" field-name="LikeInstrumentCode" />
+            <Mapping attribute-type-name="IssuerCode" field-name="IssuerCode" />
+            <Mapping attribute-type-name="CUSIP" field-name="CUSIP" />
+            <Mapping attribute-type-name="IndustrySectorFTSE" field-name="IndustrySectorFTSE" />
+            <Mapping attribute-type-name="EffectiveMaturityDate" field-name="EffectiveMaturityDate" />
+            <Mapping attribute-type-name="InstrumentPortfolioCode" field-name="" />
+            <Mapping attribute-type-name="NoMarketIndicator" field-name="NoMarketIndicator" />
+            <Mapping attribute-type-name="ETFIndicator" field-name="ETFIndicator" />
+            <Mapping attribute-type-name="IndustryGroupFTSE" field-name="IndustryGroupFTSE" />
+            <Mapping attribute-type-name="CommodityType" field-name="CommodityType" />
+            <Mapping attribute-type-name="DaysToReset" field-name="DaysToReset" />
+            <Mapping attribute-type-name="GICSSectorTSX" field-name="" />
+            <Mapping attribute-type-name="CurrencyCode" field-name="CurrencyCode" />
+            <Mapping attribute-type-name="ADR_GDRIndicator" field-name="ADR_GDRIndicator" />
+            <Mapping attribute-type-name="ExchangeCode" field-name="ExchangeCode" />
+            <Mapping attribute-type-name="VariablerateSecurityIndicator" field-name="VariablerateSecurityIndicator" />
+            <Mapping attribute-type-name="ExchangeRate" field-name="ExchangeRate" />
+            <Mapping attribute-type-name="CurrencyLegs" field-name="" />
+            <Mapping attribute-type-name="DaystoMaturity" field-name="DaystoMaturity" />
+            <Mapping attribute-type-name="InstrumentTypeCode" field-name="InstrumentTypeCode" />
+            <Mapping attribute-type-name="VotingRightsIndicator" field-name="" />
+            <Mapping attribute-type-name="IndustrySubgroupFTSE" field-name="IndustrySubgroupFTSE" />
+            <Mapping attribute-type-name="CanadianInd" field-name="" />
+            <Mapping attribute-type-name="ListedIndicator" field-name="ListedIndicator" />
+            <Mapping attribute-type-name="InternationalRatedIndicator" field-name="InternationalRatedIndicator" />
+            <Mapping attribute-type-name="DividentYieldIndicator" field-name="" />
+            <Mapping attribute-type-name="CountryCode" field-name="CountryCode" />
+            <Mapping attribute-type-name="OrignalIssueSize" field-name="" />
+            <Mapping attribute-type-name="DivExDate" field-name="DivExDate" />
+            <Mapping attribute-type-name="IssuedDate" field-name="IssuedDate" />
+            <Mapping attribute-type-name="SectorMSCI" field-name="SectorMSCI" />
+            <Mapping attribute-type-name="InvestmentType" field-name="InvestmentType" />
+            <Mapping attribute-type-name="MacaulayDuration" field-name="MacaulayDuration" />
+            <Mapping attribute-type-name="ISIN" field-name="ISIN" />
+            <Mapping attribute-type-name="SubIndustryMSCI" field-name="SubIndustryMSCI" />
+            <Mapping attribute-type-name="DateCreated" field-name="DateCreated" />
+            <Mapping attribute-type-name="MaturityDate" field-name="MaturityDate" />
+            <Mapping attribute-type-name="InstrumentCode" field-name="Code" />
+            <Mapping attribute-type-name="Guarantor" field-name="Guarantor" />
+            <Mapping attribute-type-name="IndustryGroupMSCI" field-name="IndustryGroupMSCI" />
+            <Mapping attribute-type-name="PropertyIndicator" field-name="PropertyIndicator" />
+            <Mapping attribute-type-name="EmergingMarketsIndicator" field-name="EmergingMarketsIndicator" />
+            <Mapping attribute-type-name="CountryCodeOfIssue" field-name="CountryCodeOfIssue" />
+            <Mapping attribute-type-name="InstrumentTypeSubClass" field-name="InstrumentTypeSubClass" />
+            <Mapping attribute-type-name="CounterPartyCode" field-name="CounterPartyCode" />
+            <Mapping attribute-type-name="GovFactor" field-name="GovFactor" />
+            <Mapping attribute-type-name="DerivativePermitted" field-name="" />
+            <Mapping attribute-type-name="ISOCountrySymbol" field-name="ISOCountrySymbol" />
+            <Mapping attribute-type-name="Sedol" field-name="Sedol" />
+            <Mapping attribute-type-name="PositionType" field-name="PositionType" />
+            <Mapping attribute-type-name="ModifiedDuration" field-name="ModifiedDuration" />
+            <Mapping attribute-type-name="CodeSource" field-name="CodeSource" />
+            <Mapping attribute-type-name="UnderlyingInstrumentCode" field-name="UnderlyingInstrumentCode" />
+            <Mapping attribute-type-name="CountryCodeIncorporated" field-name="CountryCodeIncorporated" />
+            <Mapping attribute-type-name="CISIndicator" field-name="CISIndicator" />
+            <Mapping attribute-type-name="Price" field-name="Price" />
+            <Mapping attribute-type-name="OptionPositionType" field-name="OptionPositionType" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="InstrumentType" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="DemandFeatureIndicator" field-name="" />
+            <Mapping attribute-type-name="DepositIndicator" field-name="" />
+            <Mapping attribute-type-name="OptionIndicator" field-name="" />
+            <Mapping attribute-type-name="ShareIndicator" field-name="" />
+            <Mapping attribute-type-name="RealEstateIndicator" field-name="" />
+            <Mapping attribute-type-name="WarrantIndicator" field-name="" />
+            <Mapping attribute-type-name="FixedInterestIndicator" field-name="" />
+            <Mapping attribute-type-name="MoneyMarketIndicator" field-name="" />
+            <Mapping attribute-type-name="CommercialPaperIndicator" field-name="" />
+            <Mapping attribute-type-name="DerivativeIndicator" field-name="" />
+            <Mapping attribute-type-name="CashIndicator" field-name="" />
+            <Mapping attribute-type-name="GuaranteeIndicator" field-name="" />
+            <Mapping attribute-type-name="TransferableSecuritiesIndicator" field-name="" />
+            <Mapping attribute-type-name="FundIndicator" field-name="" />
+            <Mapping attribute-type-name="OTCIndicator" field-name="" />
+            <Mapping attribute-type-name="DebtIndicator" field-name="" />
+            <Mapping attribute-type-name="DebentureIndicator" field-name="" />
+            <Mapping attribute-type-name="LoanIndicator" field-name="" />
+            <Mapping attribute-type-name="MorgageIndicator" field-name="" />
+            <Mapping attribute-type-name="STMoneyMarketIndicator" field-name="" />
+            <Mapping attribute-type-name="MarginIndicator" field-name="" />
+            <Mapping attribute-type-name="InstrumentTypeCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="TransactionType" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="IsSell" field-name="" />
+            <Mapping attribute-type-name="IsBuy" field-name="" />
+            <Mapping attribute-type-name="TransactionTypeCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="Exchange" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="ExchangeCode" field-name="" />
+         </Mappings>
+      </Attribute>
+      <Attribute attribute-table-name="PortfolioIssuer" source-view-name="" enabled="false">
+         <Mappings>
+            <Mapping attribute-type-name="PortfolioCode" field-name="" />
+            <Mapping attribute-type-name="IssuerCode" field-name="" />
+         </Mappings>
+      </Attribute>
+   </Attributes>
+   <Classifications>
+      <Classification classification-type-name="INS" classification-name="COUNTERPARTY" enabled="false" />
+      <Classification classification-type-name="RULE" classification-name="RuleGroups" enabled="false" />
+      <Classification classification-type-name="INS" classification-name="Sector" enabled="false" />
+   </Classifications>
+</importConfiguration>
