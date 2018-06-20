@@ -72,5 +72,61 @@ namespace ImportBatchTests
             Assert.AreEqual(true, table.Enabled);
             Assert.AreEqual(false, table.BulkCopy);
         }
+
+
+        //[TestMethod]
+        //public void ConfigParser_GetAttributes_GetsAttributes_Correctly()
+        //{
+        //    ConfigParser parser = new ConfigParser("ImportConfig.xml");
+        //    parser.Parse();
+        //    IMappableAttribute[] tables = parser.GetMappableAttributes();
+
+        //    Assert.AreEqual(6, tables.Length);
+        //    Assert.AreEqual("Portfolio", tables[3].AttributeTableName);
+        //    Assert.AreEqual("vw_compliance_export_Portfolio", tables[0].SourceViewName);
+        //    Assert.IsFalse(tables[3].Enabled);
+
+        //}
+
+        [TestMethod]
+        public void ImportAttributeSql_GetImportBooleanAttributesInsertSql()
+        {
+            ImportAttributeSql sqlgen = new ImportAttributeSql();
+            string test = sqlgen.GetImportAttributesSQL("SPC_604_FDP", new string[] { "NoMarketIndicator", "ETFIndicator", "VariablerateSecurityIndicator" }, "bit", OperationType.Insert);
+        }
+
+        [TestMethod]
+        public void ImportAttributeSql_GetImportBooleanAttributesUpdateSql()
+        {
+            ImportAttributeSql sqlgen = new ImportAttributeSql();
+            string test = sqlgen.GetImportAttributesSQL("SPC_604_FDP", new string[] { "NoMarketIndicator", "ETFIndicator", "VariablerateSecurityIndicator" }, "bit", OperationType.Update);
+        }
+
+        [TestMethod]
+        public void ImportAttributeSql_GetImportStringAttributesInsertSql()
+        {
+            ImportAttributeSql sqlgen = new ImportAttributeSql();
+            string test = sqlgen.GetImportAttributesSQL("SPC_604_FDP", new string[] {"SPC_604_FDP", "NoMarketIndicator", "ETFIndicator", "VariablerateSecurityIndicator" }, "NVARCHAR(255)", OperationType.Update);
+        }
+
+        [TestMethod]
+        public void ImportAttributeSql_GetImportStringAttributesUpdateSql()
+        {
+            ImportAttributeSql sqlgen = new ImportAttributeSql();
+            string test = sqlgen.GetImportAttributesSQL("SPC_604_FDP", new string[] { "NoMarketIndicator", "ETFIndicator", "VariablerateSecurityIndicator" }, "NVARCHAR(255)", OperationType.Update);
+        }
+
+        //[TestMethod]
+        //public void ConfigParser_GetAttributes_Get_First_Attribute_Has_Correct_Values()
+        //{
+        //    ConfigParser parser = new ConfigParser("ImportConfig.xml");
+        //    parser.Parse();
+        //    IMappableTable table = parser.GetMappableTables().ElementAt(1);
+
+        //    Assert.AreEqual("Issuer", table.TableName);
+        //    Assert.AreEqual("", table.SourceViewName);
+        //    Assert.AreEqual(true, table.Enabled);
+        //    Assert.AreEqual(false, table.BulkCopy);
+        //}
     }
 }

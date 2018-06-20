@@ -7,6 +7,31 @@ using System.Xml.Linq;
 
 namespace ImportBatch
 {
+
+    public interface IMappableAttribute
+    {
+        string AttributeTableName { get; }
+        string SourceViewName { get; }
+        bool Enabled { get; }
+    }
+
+    public class MappableAttribute : IMappableAttribute
+    {
+        public string AttributeTableName { get; private set; }
+
+        public bool Enabled { get; private set; }
+
+        public string SourceViewName { get; private set; }
+
+        public MappableAttribute(string attributeTableName, string sourceViewName, bool enabled)
+        {
+            this.AttributeTableName = attributeTableName;
+            this.SourceViewName = sourceViewName;
+            this.Enabled = enabled;
+        }
+    }
+
+
     public interface IMappableTable
     {
         string TableName { get; }
@@ -82,6 +107,20 @@ namespace ImportBatch
                     bool.Parse(t.Attribute("bulk-copy").Value),
                     bool.Parse(t.Attribute("enabled").Value))).ToArray();
                 ;
+        }
+
+        internal IMappableAttribute[] GetMappableAttributes()
+        {
+            return document
+                .Element("importConfiguration")
+                .Element("Attributes")
+                .Elements("Attribute")
+                .Select(t => new MappableAttribute(t.Attribute("attribute-table-name").Value,
+                    t.Attribute("source-view-name").Value,
+                    bool.Parse(t.Attribute("enabled").Value)))
+                .Where(a => a.Enabled == true && !string.IsNullOrWhiteSpace(a.SourceViewName))
+                    .ToArray();
+            ;
         }
 
         public ConfigParser(string filePath)
