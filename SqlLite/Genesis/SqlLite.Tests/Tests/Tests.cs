@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SqlLite.Tests
+namespace SqlLite.Tests.Tests
 {
     // https://www.sqlite.org/limits.html
 
@@ -27,15 +27,19 @@ namespace SqlLite.Tests
         {
             var connectionManager = new ConnectionManager(DbFile.GetConnectionString("testdb.db"));
             var repository = new DiaryEntryRepository(connectionManager);
+            var dateCreated = DateTime.Parse("2017/03/12 13:12:21");
+
             var entry = new DiaryEntry
             {
                 Title = "New DiaryEntry",
-                DateCreated = DateTime.Parse("2017/03/12 13:12:21").Ticks
+                DateCreated = dateCreated.Ticks
             };
 
             repository.InsertOne(entry);
             var insertedEntity = repository.GetOne(1);
             Assert.IsNotNull(entry);
+            Assert.That(entry.Title, Is.EqualTo("New DiaryEntry"));
+            Assert.That(new DateTime(entry.DateCreated), Is.EqualTo(dateCreated));
 
             insertedEntity.Title = "Modified DiaryEntry";
             repository.UpdateOne(insertedEntity);
@@ -143,7 +147,9 @@ namespace SqlLite.Tests
             diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/12 13:12:21").Ticks, Title = "Diary Entry 1" });
             diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/15 08:01:59").Ticks, Title = "Diary Entry 2" });
 
-            IEnumerable<DiaryEntry> foundEntries = diaryEntryRepository.FindByTitle("Entry 1");
+            var findCriteria = new DiaryEntryFindCriteria("Entry 1");
+            
+            IEnumerable<DiaryEntry> foundEntries = diaryEntryRepository.Find(findCriteria);
 
             Assert.That(foundEntries.Count(), Is.EqualTo(1));
         }
@@ -158,13 +164,49 @@ namespace SqlLite.Tests
             diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/15 08:01:59").Ticks, Title = "Diary Entry 2" });
             diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/20 08:01:59").Ticks, Title = "Diary Entry 3" });
 
-            var findCriteria = new DiaryEntryFindCriteria(DateTime.Parse("2017/03/14 13:12:21"), DateTime.Parse("2017/03/17 13:12:21"));
+            var findCriteria = new DiaryEntryFindCriteria(null, DateTime.Parse("2017/03/14 13:12:21"), DateTime.Parse("2017/03/17 13:12:21"));
 
 
             IEnumerable<DiaryEntry> foundEntries = diaryEntryRepository.Find(findCriteria);
 
             Assert.That(foundEntries.Count(), Is.EqualTo(1));
             Assert.That(foundEntries.First().Title, Is.EqualTo("Diary Entry 2"));
+        }
+
+        [Test]
+        public void Find_DiaryEntry_By_FindCriteria_AfterStartDate()
+        {
+            var connectionManager = new ConnectionManager(DbFile.GetConnectionString("testdb.db"));
+            var diaryEntryRepository = new DiaryEntryRepository(connectionManager);
+
+            diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/12 13:12:21").Ticks, Title = "Diary Entry 1" });
+            diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/15 08:01:59").Ticks, Title = "Diary Entry 2" });
+            diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/20 08:01:59").Ticks, Title = "Diary Entry 3" });
+
+            var findCriteria = new DiaryEntryFindCriteria(null, DateTime.Parse("2017/03/14 13:12:21"));
+
+
+            IEnumerable<DiaryEntry> foundEntries = diaryEntryRepository.Find(findCriteria);
+
+            Assert.That(foundEntries.Count(), Is.EqualTo(2));
+        }
+
+        [Test]
+        public void Find_DiaryEntry_By_FindCriteria_BeforeEndDate()
+        {
+            var connectionManager = new ConnectionManager(DbFile.GetConnectionString("testdb.db"));
+            var diaryEntryRepository = new DiaryEntryRepository(connectionManager);
+
+            diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/12 13:12:21").Ticks, Title = "Diary Entry 1" });
+            diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/15 08:01:59").Ticks, Title = "Diary Entry 2" });
+            diaryEntryRepository.InsertOne(new DiaryEntry { DateCreated = DateTime.Parse("2017/03/20 08:01:59").Ticks, Title = "Diary Entry 3" });
+
+            var findCriteria = new DiaryEntryFindCriteria(null, null, DateTime.Parse("2017/03/14 13:12:21"));
+
+
+            IEnumerable<DiaryEntry> foundEntries = diaryEntryRepository.Find(findCriteria);
+
+            Assert.That(foundEntries.Count(), Is.EqualTo(1));
         }
     }
 }

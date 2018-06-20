@@ -78,7 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Tests.cs" />
+    <Compile Include="Tests\Tests.cs" />
     <Compile Include="DAL\ConnectionManager.cs" />
     <Compile Include="DAL\DatabaseOperationsRepository.cs" />
     <Compile Include="DAL\RepositoryBase.cs" />

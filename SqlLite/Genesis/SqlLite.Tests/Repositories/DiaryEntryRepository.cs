@@ -21,16 +21,42 @@ namespace SqlLite.Tests.Repositories
 
         }
 
-        public IEnumerable<DiaryEntry> FindByTitle(string v)
-        {
-            return this.GetMany<DiaryEntry>(new DiaryEntry { Title = v }, $"select * from DiaryEntry where Title LIKE '%{v}%'");
-        }
+        //public IEnumerable<DiaryEntry> Find(string v)
+        //{
+        //    return this.GetMany<DiaryEntry>(new DiaryEntry { Title = v }, $"select * from DiaryEntry where Title LIKE '%{v}%'");
+        //}
 
         // Important little tutorial on how to use inbuilt sql lite date/time functions for storage.
         // http://www.sqlitetutorial.net/sqlite-date/
         public IEnumerable<DiaryEntry> Find(DiaryEntryFindCriteria findCriteria)
         {
-            string sql = $"select * from DiaryEntry where DateCreated BETWEEN {findCriteria.StartDate.Ticks} and {findCriteria.EndDate.Ticks}";
+            string sql = "";
+            List<string> filterList = new List<string>();
+
+            sql = $"select * from DiaryEntry\n" +
+                    "where \n";
+
+            
+            if (findCriteria.StartDate != null && findCriteria.EndDate != null)
+                filterList.Add(
+                    "DateCreated BETWEEN \n" + 
+                    $"{findCriteria.StartDate.Value.Ticks} and {findCriteria.EndDate.Value.Ticks}");
+            else if (findCriteria.StartDate != null && findCriteria.EndDate == null)
+                filterList.Add(
+                    "DateCreated >= \n" +
+                    $"{findCriteria.StartDate.Value.Ticks}");
+
+            else if (findCriteria.StartDate == null && findCriteria.EndDate != null)
+                filterList.Add(
+                    "DateCreated < \n" +
+                    $"{findCriteria.EndDate.Value.Ticks}");
+
+            if (!string.IsNullOrWhiteSpace(findCriteria.Title))
+                filterList.Add( $"Title LIKE '%{findCriteria.Title}%'");
+
+            sql = sql +
+                string.Join("AND", filterList);
+
             return this.GetMany<DiaryEntry>(null, sql);
         }
     }

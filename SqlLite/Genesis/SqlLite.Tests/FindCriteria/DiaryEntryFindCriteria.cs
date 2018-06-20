@@ -8,12 +8,15 @@ namespace SqlLite.Tests.FindCriteria
 {
     public class DiaryEntryFindCriteria
     {
-        public DiaryEntryFindCriteria(DateTime startDate, DateTime endDate)
+        public DiaryEntryFindCriteria(string title = null, DateTime? startDate = null, DateTime? endDate = null)
         {
+            this.Title = title;
             this.StartDate = startDate;
             this.EndDate = endDate;
         }
-        public DateTime StartDate { get; }
-        public DateTime EndDate { get; }
+
+        public string Title { get; }
+        public DateTime? StartDate { get; }
+        public DateTime? EndDate { get; }
     }
 }
