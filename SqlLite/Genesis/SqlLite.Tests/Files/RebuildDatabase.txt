@@ -1,0 +1,24 @@
+﻿DROP TABLE IF EXISTS DiaryEntry;
+CREATE TABLE "DiaryEntry" ( `Id` INTEGER, `Title` TEXT, `DateCreated` NUMERIC, PRIMARY KEY(`Id`) );
+
+DROP TABLE IF EXISTS DiaryEntryAttachment;
+CREATE TABLE "DiaryEntryAttachment" ( `DiaryEntryId` INTEGER, `AttachmentId` INTEGER, PRIMARY KEY(`DiaryEntryId`,`AttachmentId`) );
+
+DROP TABLE IF EXISTS DiaryEntryHyperlink;
+CREATE TABLE "DiaryEntryHyperlink" ( `DiaryEntryId` INTEGER, `HyperlinkId` INTEGER, PRIMARY KEY(`DiaryEntryId`,`HyperlinkId`) );
+
+DROP TABLE IF EXISTS DiaryEntrySnippet;
+CREATE TABLE "DiaryEntrySnippet" ( `DiaryEntryId` INTEGER, `SnippetId` INTEGER, PRIMARY KEY(`DiaryEntryId`,`SnippetId`) );
+
+DROP TABLE IF EXISTS Attachment;
+CREATE TABLE "Attachment" ( `Id` INTEGER, `FileName` VARCHAR(100), `Description` VARCHAR(500), `Extension` VARCHAR(10), PRIMARY KEY(`Id`) );
+
+DROP TABLE IF EXISTS Hyperlink;
+CREATE TABLE "Hyperlink" ( `Id` INTEGER, `Title` TEXT, `Url` TEXT, PRIMARY KEY(`Id`) );
+
+DROP TABLE IF EXISTS Snippet;
+CREATE TABLE `Snippet` ( `Id` INTEGER, `Title` TEXT, `Content` TEXT, `SyntaxHighlightId` INTEGER, PRIMARY KEY(`Id`) );
+
+DROP TABLE IF EXISTS SyntaxHighlight;
+CREATE TABLE "SyntaxHighlight" ( `Id` INTEGER, `Title` TEXT, PRIMARY KEY(`Id`) );
+
