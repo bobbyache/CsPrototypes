@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuredmodule name="AttributesModule" 
+                  description="Attributes Module" 
+                  transformer="Roles.xslt"
+                  required-user-type="SuperUser">
+                  
+  <!-- security -->
+  <security>
+  
+    <entry name="attributes" display-name="Attributes">
+
+      <entry name="maintain" 
+             display-name="Attribute Tables &amp; Types" 
+             description="Attribute Table &amp; Type Maintenance" 
+             execute="doAttributes" 
+             required-user-type="SuperUser">
+
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+
+        <entry name="generateviews" display-name="Regenerate Views" description="">
+          <entry name="deleteallviews" display-name="Delete All Views" description=""/>
+        </entry>
+
+        <entry name="createschema" display-name="Export Attribute Schema" description=""/>
+
+      </entry>
+
+      <entry name="data" 
+             display-name="Attribute Data" 
+             description="Attribute Data Maintenance" 
+             execute="doAttributesData"
+             required-user-type="InternalUser">
+
+        <entry name="commit" display-name="Save Changes" description=""/>
+
+      </entry>
+
+    </entry>
+  
+  </security>
+
+  <!-- commands -->
+  <commands>
+  
+  </commands>
+  
+  <!-- menus -->
+  <menus>
+    
+    <menu text="&amp;Maintain" merge-order="30" merge-type="MergeItems">
+      <menu text="Maintain &amp;Attributes" command="attributes.maintain"/>
+      <menu text="Ad-&amp;hoc Attribute Data Maintenance" command="attributes.data" />
+    </menu>
+    
+  </menus>
+
+</configuredmodule>
