@@ -66,6 +66,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModuleXmlReader\ModuleXmlReader.csproj">
+      <Project>{afc69df6-8872-4c31-b363-521ec0442ae9}</Project>
+      <Name>ModuleXmlReader</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

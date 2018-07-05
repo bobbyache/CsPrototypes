@@ -7,7 +7,7 @@
 
   <!-- security -->
   <security>
-
+    <!--- this comment here to prove that the first root "entry" element will be found by tests  -->
     <entry name="compliance.reports" display-name="Reports">
 
       <entry name="testreport" display-name="Test Report: Breach History" execute="runTestReport" />
