@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<configuredmodule name="ReportsModule"
+                  description="Reports Module"
+                  transformer="Roles.xslt"
+                  required-user-type="ExternalUser">
+
+  <!-- security -->
+  <security>
+    <!--- this comment here to prove that the first root "entry" element will be found by tests  -->
+    <entry name="compliance.reports" display-name="Reports">
+
+      <entry name="testreport" display-name="Test Report: Breach History" execute="runTestReport" />
+      <entry name="weightvslimitschedulereport" display-name="Test Report: Weight vs. Limit Schedule" execute="runWeightVsLimitScheduleReport" />
+      <entry name="testreport2" display-name="Test Report: Session Analysis" execute="runTestReport2" />
+
+      <entry name="static" display-name="Static Data">
+        <entry name="issuerratings.byagency" display-name="Issuer Ratings By Agency" execute="runIssuerRatingsByAgencyReport" />
+        <entry name="issuerratings.byissuer" display-name="Issuer Ratings By Issuer" execute="runIssuerRatingsByIssuerReport" />
+        <entry name="issuerratings.table" display-name="Issuer Ratings Table" execute="runIssuerRatingsTableReport" />
+
+        <entry name="instrumentratings.byinstrument" display-name="Instrument Ratings By Instrument" execute="runInstrumentRatingsByInstrumentReport" />
+        <entry name="instrumentratings.byagency" display-name="Instrument Ratings By Agency" execute="runInstrumentRatingsByAgencyReport" />
+        <entry name="instrumentratings.table" display-name="Instrument Ratings Table" execute="runInstrumentRatingsTableReport" />
+
+        <entry name="ratingscales" display-name="Rating Scales" execute="runRatingScalesReport" />
+        <entry name="portfolioissuerweighting" display-name="Portfolio Issuer Percentages" execute="runPortfolioIssuerWeightingReport" />
+      </entry>
+
+      <entry name="rulebook" display-name="Compliance Rule Book" execute="runComplianceRuleBookReport"  required-user-type="InternalUser"/>
+      <entry name="rulebook.audit" display-name="Compliance Rule Book Audit" execute="runComplianceRuleBookAuditReport"  required-user-type="SuperUser"/>
+
+      <entry name="portfoliorulelinkage" display-name="Compliance Portfolio/Rule Linkage" execute="runPortfolioRuleLinkageReport" required-user-type="InternalUser"/>
+      <entry name="compositerulelinkage" display-name="Compliance Composite/Rule Linkage" execute="runCompositeRuleLinkageReport" required-user-type="InternalUser"/>
+
+      <entry name="sessionsummary" display-name="Compliance Session Summary" execute="runSessionSummaryReport" required-user-type="InternalUser"/>
+      <entry name="sessionanalysis" display-name="Compliance Session Analysis" execute="runSessionAnalysisReport" />
+      <entry name="rerunsessionanalysis" display-name="Compliance Rerun Session Analysis" execute="runRerunSessionAnalysisReport" />
+      <entry name="dailybreach" display-name="Daily Breach" execute="runDailyBreachReport" />
+
+      <entry name="breachageanalysis" display-name="Compliance Breach Age Analysis" execute="runBreachAgeAnalysisReport" />
+      <entry name="breachbyportfolio" display-name="Compliance Breach By Portfolio" execute="runBreachByPortfolioReport" />
+      <entry name="breachbystatus" display-name="Compliance Breach By Status" execute="runBreachByStatusReport" />
+      <entry name="breachuserassignment" display-name="Compliance Breach User Assignment" execute="runBreachUserAssignmentReport" required-user-type="InternalUser"/>
+
+      <entry name="breachsummary" display-name="Compliance Breach Summary" execute="runBreachSummaryReport" required-user-type="InternalUser"/>
+      <entry name="breachhistory" display-name="Compliance Breach By Portfolio History" execute="runBreachHistoryReport" />
+      <entry name="breachstatushistory" display-name="Compliance Breach Status History" execute="runBreachStatusHistoryReport" />
+
+      <entry name="portfoliorulecheckhistory" display-name="Compliance Portfolio Rule Check History" execute="runPortfolioRuleCheckHistoryReport" />
+
+      <entry name="certificate" display-name="Compliance Status" execute="runCertificateReport" required-user-type="InternalUser"/>
+
+      <entry name="useractivity" display-name="User Activity" execute="runUserActivityReport" required-user-type="SuperUser"/>
+
+      <entry name="autogeneration" display-name="Report Generation" execute="runReportGeneration" required-user-type="SuperUser"/>
+      <entry name="autogenerationconfiguration" display-name="Report Generation Configuration" execute="runReportGenerationConfiguration"  required-user-type="SuperUser"/>
+
+    </entry>
+
+  </security>
+
+  <!-- commands -->
+  <commands>
+
+  </commands>
+
+  <!-- menus -->
+  <menus>
+
+    <menu text="&amp;Reports" merge-order="60" merge-type="MergeItems">
+
+
+      <menu text="&amp;Test Report: Breach History" command="compliance.reports.testreport" />
+      <menu text="&amp;Test Report: Weight vs. Limit Schedule" command="compliance.reports.weightvslimitschedulereport" />
+      <menu text="&amp;Test Report: Session Analysis" command="compliance.reports.testreport2" />
+
+      <!-- Static Data -->
+      <menu text="&amp;Static Data">
+
+        <!-- instruments, issuers, portfolios etc ? -->
+
+        <menu text="&amp;Issuer Ratings by Rating Agency" command="compliance.reports.static.issuerratings.byagency" />
+        <menu text="Issuer &amp;Ratings by Issuer" command="compliance.reports.static.issuerratings.byissuer" />
+        <menu text="Issuer Ratings &amp;Table" command="compliance.reports.static.issuerratings.table" />
+        <menu text="-" />
+        <menu text="&amp;Instrument Ratings by Rating Agency" command="compliance.reports.static.instrumentratings.byagency" />
+        <menu text="Instrument &amp;Ratings by Instrument" command="compliance.reports.static.instrumentratings.byinstrument" />
+        <menu text="Instrument Ratings &amp;Table" command="compliance.reports.static.instrumentratings.table" />
+        <menu text="-" />
+        <menu text="Rating &amp;Scales" command="compliance.reports.static.ratingscales" />
+
+        <!-- rating scales ? -->
+
+        <menu text="-" />
+        <menu text="Portfolio Issuer &amp;Percentages" command="compliance.reports.static.portfolioissuerweighting" />
+
+      </menu>
+
+      <menu text="-" />
+
+      <!-- Rules -->
+      <menu text="&amp;Rule Book" command="compliance.reports.rulebook"/>
+      <menu text="Rule Book &amp;Audit" command="compliance.reports.rulebook.audit"/>
+
+      <menu text="-" merge-order="10" />
+      <menu text="Portfolio to Rule &amp;Linkage" command="compliance.reports.portfoliorulelinkage" />
+      <menu text="&amp;Composite to Rule Linkage" command="compliance.reports.compositerulelinkage" />
+      <menu text="-" />
+
+      <!-- Sessions -->
+      <menu text="Session &amp;Summary" command="compliance.reports.sessionsummary"/>
+      <menu text="Session &amp;Analysis" command="compliance.reports.sessionanalysis"/>
+      <menu text="&amp;Rerun Session Analysis" command="compliance.reports.rerunsessionanalysis"/>
+      <menu text="&amp;Daily Breach" command="compliance.reports.dailybreach"/>
+
+      <menu text="-" merge-order="20" />
+
+      <!-- Results -->
+      <menu text="&amp;Breaches">
+
+        <menu text="Breach &amp;Summary" command="compliance.reports.breachsummary"/>
+        <menu text="Breach A&amp;ge Analysis" command="compliance.reports.breachageanalysis" />
+
+        <menu text="-" />
+
+        <menu text="Breaches By &amp;Portfolio" command="compliance.reports.breachbyportfolio"/>
+        <menu text="Breaches By &amp;Status" command="compliance.reports.breachbystatus"/>
+        <menu text="Breaches By &amp;User Assignment" command="compliance.reports.breachuserassignment"/>
+
+        <menu text="-" />
+        <menu text="&amp;Portfolio Rule Check History" command="compliance.reports.portfoliorulecheckhistory"/>
+        <menu text="Breach &amp;History" command="compliance.reports.breachhistory"/>
+        <menu text="Br&amp;each Status History" command="compliance.reports.breachstatushistory"/>
+
+      </menu>
+
+      <menu text="-" merge-order="40" />
+
+      <!-- Certificate -->
+      <menu text="Compliance S&amp;tatus Report"  merge-order="50" command="compliance.reports.certificate"/>
+
+      <!-- User Activity -->
+      <menu text="-" merge-order="60" />
+      <menu text="User Activity"  merge-order="61" command="compliance.reports.useractivity"/>
+
+      <!-- report generation -->
+      <menu text="-" merge-order="70" />
+      <menu text="Report Generation Configuration" merge-order="71" command="compliance.reports.autogenerationconfiguration"/>
+      <menu text="Report Generation" merge-order="72" command="compliance.reports.autogeneration"/>
+
+    </menu>
+
+  </menus>
+
+</configuredmodule>

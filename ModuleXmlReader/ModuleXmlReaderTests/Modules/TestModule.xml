@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuredmodule name="BreachAnalysisModule"
+                  description="Breach Management Automation Module"
+                  transformer="Roles.xslt"
+                  required-user-type="SuperUser">
+
+  <!-- security -->
+  <security>
+
+    <entry name="compliance.tasks" display-name="Breach Management Automation">
+
+      <entry name="maintain" display-name="Tasks" execute="OnMaintainTasks">
+
+        <entry name="edit" display-name="Maintain">
+
+          <entry name="add" display-name="Add" />
+          <entry name="delete" display-name="Delete" />
+
+          <entry name="reorder" display-name="Reorder" />
+
+          <!-- NB: soft reference in TaskInformationTabPage.cs -->
+          <entry name="enable" display-name="Activate/Deactivate" />
+
+        </entry>
+
+        <entry name="test" display-name="Test Tasks" />
+        <entry name="runonline" display-name="Run Tasks Online" />
+
+      </entry>
+
+      <entry name="run" display-name="Run Tasks" execute="OnRunTasks" />
+
+      <entry name="logs" display-name="View Task Logs" execute="OnShowActivityLogs" />
+
+    </entry>
+
+    <entry name="contexts" display-name="Contexts">
+
+      <entry name="maintain.breaches" display-name="Breaches" description="Breach Context Maintenance" execute="OnMaintainBreachContexts">
+        <entry name="edit" display-name="Edit">
+          <entry name="add" display-name="Add">
+            <entry name="copy" display-name="Copy" />
+          </entry>
+          <entry name="delete" display-name="Delete" />
+          <entry name="rename" display-name="Rename" />
+          <entry name="export" display-name="Export" />
+        </entry>
+      </entry>
+
+    </entry>
+
+    <entry name="compliance.maintain.breaches" display-name="Breaches">
+
+      <entry name="attributes" display-name="Breach Attribute Maintenance" execute="OnMaintainBreachAttributes">
+        <entry name="edit" display-name="Save Changes" description=""/>
+      </entry>
+
+    </entry>
+
+    <entry name="compliance" display-name="Rules">
+
+      <entry name="maintain.statuses.attributes" display-name="Breach Status Attribute Maintenance" execute="OnMaintainBreachStatusAttributes">
+        <entry name="edit" display-name="Save Changes" description=""/>
+      </entry>
+
+    </entry>
+
+  </security>
+
+  <!-- commands -->
+  <commands>
+
+  </commands>
+
+  <!-- menus -->
+  <menus>
+
+    <menu text="&amp;Management" merge-order="55" merge-type="MergeItems">
+      <menu text="Maintain Automation &amp;Tasks" command="compliance.tasks.maintain" />
+      <menu text="-" />
+      <menu text="Run Automation Tasks" command="compliance.tasks.run" />
+      <menu text="Task &amp;Activity Logs" command="compliance.tasks.logs" />
+      <menu text="-" />
+      <menu text="&amp;Breach Contexts" command="contexts.maintain.breaches" />
+    </menu>
+
+    <menu text="&amp;Maintain" merge-order="30" merge-type="MergeItems">
+
+      <menu text="-" merge-order="140"/>
+      <menu text="&amp;Breach Status Attributes" command="compliance.maintain.statuses.attributes" />
+      <menu text="Breach &amp;Attributes" command="compliance.maintain.breaches.attributes" />
+
+    </menu>
+
+  </menus>
+
+</configuredmodule>

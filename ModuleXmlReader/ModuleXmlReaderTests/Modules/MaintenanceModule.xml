@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuredmodule name="MaintenanceModule" 
+                  description="Data Maintenance Module" 
+                  transformer="Roles.xslt"
+                  required-user-type="SuperUser">
+                  
+  <!-- security -->
+  <security>
+  
+    <entry name="maintain" display-name="Static Data Maintenance">
+
+      <entry name="entitytypes" display-name="Entity Types" description="Entity Type Maintenance" execute="maintainEntityTypes">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+        <entry name="generateviews" display-name="Regenerate Views" description="" />
+      </entry>
+
+      <entry name="entityvalues" display-name="Entity Values" description="Entity Value Maintenance" execute="maintainEntityValues">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <!--
+      <entry name="entityattributedata" display-name="Entity Attribute Data" description="Entity Attribute Data Maintenance" execute="maintainEntityAttributeData">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="commit" display-name="Save Changes" description=""/>
+        </entry>
+      </entry>
+      -->
+
+      <entry name="relationshiptypes" display-name="Relationships" description="Relationship Maintenance" execute="maintainRelationships">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+        <entry name="generateviews" display-name="Regenerate Views" description="" />
+      </entry>
+
+      <entry name="relationshipattributedata" display-name="Relationship Attribute Data" description="Relationship Attribute Data Maintenance" execute="maintainRelationshipAttributeData">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="countries" display-name="Countries" description="Country Maintenance" execute="maintainCountries">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="currencies" display-name="Currencies" description="Currency Maintenance" execute="maintainCurrencies">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="exchanges" display-name="Exchanges" description="Exchange Maintenance" execute="maintainExchanges">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="issuers" display-name="Issuers" description="Issuer Maintenance" execute="maintainIssuers">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="issuers.types" display-name="Issuer Types" description="Issuer Type Maintenance" execute="maintainIssuerTypes">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>     
+
+      <entry name="instruments" display-name="Instruments" description="Instrument Maintenance" execute="maintainInstruments">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="instruments.types" display-name="Instrument Types" description="Instrument Type Maintenance" execute="maintainInstrumentTypes">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="portfolios" display-name="Portfolios" description="Portfolio Maintenance" execute="maintainPortfolios" required-user-type="InternalUser">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description="" required-user-type="SuperUser"/>
+          <entry name="delete" display-name="Delete" description="" required-user-type="SuperUser"/>
+        </entry>
+      </entry>
+
+      <entry name="portfolios.types" display-name="Portfolio Types" description="Portfolio Type Maintenance" execute="maintainPortfolioTypes">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="portfolios.issuers" display-name="Portfolio Issuers" description="Portfolio Issuer Maintenance" execute="maintainPortfolioIssuers">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="brokers" display-name="Brokers" description="Broker Maintenance" execute="maintainBrokers">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="transactiontypes" display-name="Transaction Types" description="Transaction Type Maintenance" execute="maintainTransactionTypes">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="portfolios.orders" display-name="Portfolio Orders" description="Portfolio Order Maintenance" execute="maintainPortfolioOrders" required-user-type="InternalUser">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="portfolios.trades" display-name="Portfolio Trades" description="Portfolio Trade Maintenance" execute="maintainPortfolioTrades" required-user-type="InternalUser">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+    
+      <entry name="portfolios.holdings" display-name="Portfolio Holdings" description="Portfolio Holding Maintenance" execute="maintainPortfolioHoldings" required-user-type="InternalUser">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="portfolios.holdings.attributes" display-name="Portfolio Holding Attributes" description="Portfolio Holding Attribute Maintenance" execute="maintainPortfolioHoldingAttributes" required-user-type="InternalUser">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="ratingagencies" display-name="Rating Agencies" description="Rating Agency Maintenance" execute="maintainRatingAgencies">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="ratingagencies.ratings" display-name="Rating Agency Ratings" description="Rating Agency Rating Maintenance" execute="maintainRatingAgencyRatings">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="ratingagencies.issuerratings" display-name="Issuer Ratings" description="Issuer Rating Maintenance" execute="maintainIssuerRatings">
+      
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+        
+      </entry>
+
+      <entry name="ratingagencies.instrumentratings" display-name="Instrument Ratings" description="Instrument Rating Maintenance" execute="maintainInstrumentRatings">
+
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+
+      </entry>
+
+      <entry name="ratingagencies.scales" display-name="Rating Scales" description="Rating Scale Maintenance" execute="maintainRatingScales">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="ratingagencies.scalebands" display-name="Rating Scale Bands" description="Rating Scale Band Maintenance" execute="maintainRatingScaleBands">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="benchmarks" display-name="Benchmarks" description="Benchmark Maintenance" execute="maintainBenchMarks">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="benchmarks.entities" display-name="Entity Benchmarks" description="Entity Benchmark Maintenance" execute="maintainEntityBenchMarks">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="benchmarks.constituents" display-name="Benchmark Constituents" description="Benchmark Constituent Maintenance" execute="maintainBenchMarkConstituents">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="benchmarks.constituents.entities" display-name="Entity Benchmark Constituents" description="Entity Benchmark Constituent Maintenance" execute="maintainEntityBenchMarkConstituents">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+        </entry>
+      </entry>
+
+    </entry>
+  
+  </security>
+
+  <!-- commands -->
+  <commands>
+  
+    <command name="gotoinstrumentmaintenance" description="" execute="gotoInstrumentMaintenance" />
+     
+  </commands>
+  
+  <!-- menus -->
+  <menus>
+        
+    <menu text="&amp;Maintain" merge-order="30" merge-type="MergeItems">
+    
+      <menu text="-" merge-type="Replace" merge-order="10" />
+
+      <menu text="User defined &amp;Entities" merge-order="20" merge-type="MergeItems">
+        <menu text="&amp;Define Entities" command="maintain.entitytypes" />
+        <menu text="&amp;Values" command="maintain.entityvalues" />
+        <!--
+        <menu text="&amp;Attribute Data" command="maintain.entityattributedata" />
+        -->
+      </menu>
+
+      <menu text="&amp;Relationships" merge-order="30" merge-type="MergeItems">
+        <menu text="&amp;Define Relationships" command="maintain.relationshiptypes" />
+        <menu text="&amp;Attribute Data" command="maintain.relationshipattributedata" />
+      </menu>
+
+      <menu text="-" merge-order="40" />
+
+      <menu text="&amp;Countries" command="maintain.countries" merge-order="50" />
+
+      <menu text="C&amp;urrencies" command="maintain.currencies" merge-order="60" />
+
+      <menu text="E&amp;xchanges" command="maintain.exchanges" merge-order="70" />
+
+      <menu text="&amp;Issuers" merge-order="80">
+        <menu text="Issuer &amp;Types" command="maintain.issuers.types" />
+        <menu text="-" />
+        <menu text="I&amp;ssuers" command="maintain.issuers" />
+      </menu>
+
+      <menu text="&amp;Instruments" merge-order="90">
+        <menu text="Instrument &amp;Types" command="maintain.instruments.types" />
+        <menu text="-" />
+        <menu text="&amp;Instruments" command="maintain.instruments" />
+      </menu>
+    
+      <menu text="&amp;Portfolios" merge-order="100">
+        <menu text="Portfolio &amp;Types" command="maintain.portfolios.types" />
+        <menu text="-" />
+        <menu text="&amp;Portfolios" command="maintain.portfolios" />
+        <menu text="Portfolio &amp;Issuer Percentages" command="maintain.portfolios.issuers" />
+      </menu>
+
+      <menu text="&amp;Transactions &amp;&amp; Holdings" merge-order="110" merge-type="MergeItems">
+        <menu text="&amp;Brokers" command="maintain.brokers" />
+        <menu text="&amp;Transaction Types" command="maintain.transactiontypes" />
+        <menu text="-" />
+        <menu text="Portfolio &amp;Orders" command="maintain.portfolios.orders" />
+        <menu text="Portfolio T&amp;rades" command="maintain.portfolios.trades" />
+        <menu text="-" />
+        <menu text="Portfolio &amp;Holdings" command="maintain.portfolios.holdings" />
+        <menu text="Portfolio Holding &amp;Attributes" command="maintain.portfolios.holdings.attributes" />
+      </menu>
+
+      <menu text="&amp;Ratings" merge-order="120">
+        <menu text="Rating &amp;Agencies" command="maintain.ratingagencies" />
+        <menu text="&amp;Ratings" command="maintain.ratingagencies.ratings" />
+        <menu text="-" />
+        <menu text="&amp;Issuer Ratings" command="maintain.ratingagencies.issuerratings" />
+        <menu text="&amp;Instrument Ratings" command="maintain.ratingagencies.instrumentratings" />
+        <menu text="-" />
+        <menu text="Rating &amp;Scales" command="maintain.ratingagencies.scales" />
+        <menu text="Rating Scale &amp;Bands" command="maintain.ratingagencies.scalebands" />
+      </menu>
+
+      <menu text="&amp;Benchmarks" merge-order="130">
+        <menu text="Instrument &amp;&amp; Issuer &amp;Benchmarks" command="maintain.benchmarks" />
+        <menu text="Instrument &amp;&amp; Issuer Benchmark &amp;Constituents" command="maintain.benchmarks.constituents" />
+        <menu text="-" />
+        <menu text="&amp;Entity Benchmarks" command="maintain.benchmarks.entities" />
+        <menu text="Entity Benchmark &amp;Constituents" command="maintain.benchmarks.constituents.entities" />
+      </menu>
+
+    </menu>
+    
+  </menus>
+
+</configuredmodule>
