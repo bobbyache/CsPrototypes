@@ -62,8 +62,18 @@
     <Content Include="Modules\BreachAnalysisModule.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Modules\MaintenanceModule.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Modules\ReportsModule.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\SecurityMaintenanceModule.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Modules\TestModule.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

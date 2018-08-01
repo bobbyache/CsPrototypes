@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuredmodule name="SecurityMaintenanceModule"
+                  description="Security Maintenance Module"
+                  transformer="Roles.xslt"
+                  required-user-type="SuperUser">
+
+  <!-- security -->
+  <security>
+
+    <entry name="security" display-name="Security">
+
+      <entry name="profiles" display-name="Profiles" description="Maintain Security Profiles" execute="maintainProfiles">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+          <entry name="export" display-name="Export" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="users" display-name="Users" description="Maintain Users" execute="maintainUsers">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+          <entry name="export" display-name="Export" description=""/>
+        </entry>
+      </entry>
+
+      <entry name="groups" display-name="Groups" description="Maintain Groups" execute="maintainGroups">
+        <entry name="edit" display-name="Edit" description="">
+          <entry name="add" display-name="Add" description=""/>
+          <entry name="delete" display-name="Delete" description=""/>
+          <entry name="export" display-name="Export" description=""/>
+        </entry>
+      </entry>
+
+    </entry>
+
+  </security>
+
+  <!-- commands -->
+  <commands>
+
+  </commands>
+
+  <!-- menus -->
+  <menus>
+
+    <menu text="&amp;Security" merge-order="10" merge-type="MergeItems">
+      <menu text="&amp;Profiles" command="security.profiles"/>
+      <menu text="&amp;Groups" command="security.groups"/>
+      <menu text="&amp;Users" command="security.users"/>
+    </menu>
+
+  </menus>
+
+</configuredmodule>
+

@@ -9,10 +9,60 @@ namespace ModuleXmlReaderTests
 {
     [TestClass]
     [DeploymentItem(@"Modules\ReportsModule.xml")]
+    [DeploymentItem(@"Modules\MaintenanceModule.xml")]
+    [DeploymentItem(@"Modules\TestModule.xml")]
     public class UnitTest1
     {
         public string XDocument { get; private set; }
-        
+
+        [TestMethod]
+        public void RipModule_2()
+        {
+            ModuleMenuReader menuSystem = new ModuleMenuReader("TestModule.xml");
+
+            foreach (var item in menuSystem.RootMenu.Menus)
+            {
+                if (item.Menus.Length > 0)
+                {
+                    foreach (var subItem in item.Menus)
+                    {
+                        if (subItem.CommandItem != null)
+                            System.Diagnostics.Debug.WriteLine($"{subItem.Command} \t {subItem.CommandItem.Execute} \t {subItem.CommandItem.DisplayName}");
+                    }
+                }
+                else
+                {
+                    if (item.CommandItem != null)
+                        System.Diagnostics.Debug.WriteLine($"{item.Command} \t {item.CommandItem.Execute} \t {item.CommandItem.DisplayName}");
+
+                }
+            }
+
+            Assert.IsTrue(menuSystem.RootMenu != null);
+        }
+
+        [TestMethod]
+        public void RipModule()
+        {
+            string section = "Section";
+            string subsection = "SubSection";
+            ModuleMenuReader menuSystem = new ModuleMenuReader("TestModule.xml");
+
+            foreach (var item in menuSystem.RootMenu.Menus)
+            {
+                if (item.Menus.Length > 0)
+                {
+                    foreach (var subItem in item.Menus)
+                    {
+                        System.Diagnostics.Debug.WriteLine($"{section},{subsection},{subItem.Command},{item.Text} -> {subItem.Text}");
+                    }
+                }
+                else
+                    System.Diagnostics.Debug.WriteLine($"{section},{subsection},{item.Command},{item.Text}");
+            }
+
+            Assert.IsTrue(menuSystem.RootMenu != null);
+        }
 
         [TestMethod]
         public void ReadsXmlFileSuccessfully()
