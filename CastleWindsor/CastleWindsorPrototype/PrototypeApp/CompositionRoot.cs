@@ -10,11 +10,13 @@ namespace PrototypeApp
     {
         private readonly IConsoleWriter consoleWriter;
         private readonly ISingletonDemo singletonDemo;
+        private readonly IUserLogin userLogin;
 
-        public CompositionRoot(IConsoleWriter consoleWriter, ISingletonDemo singletonDemo)
+        public CompositionRoot(IConsoleWriter consoleWriter, ISingletonDemo singletonDemo, IUserLogin userLogin)
         {
             this.consoleWriter = consoleWriter ?? throw new ArgumentNullException("Console writer must be supplied.");
             this.singletonDemo = singletonDemo ?? throw new ArgumentNullException("Singleton Demo must be supplied.");
+            this.userLogin = userLogin ?? throw new ArgumentNullException("User Login must be supplied.");
 
             consoleWriter.LogMessage("Hello from the CompositionRoot Constructor!");
         }
@@ -24,6 +26,11 @@ namespace PrototypeApp
             var msg = $"CompositionRoot.LogMessage:  singletonDemo.ObjectId={singletonDemo.ObjectId}";
             consoleWriter.LogMessage(msg);
             consoleWriter.LogMessage(message);
+        }
+
+        public void Login()
+        {
+            userLogin.Login();
         }
     }
 }

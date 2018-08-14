@@ -49,10 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AOP\DoNotPerformPermissionCheck.cs" />
+    <Compile Include="AOP\PermissionsStub.cs" />
     <Compile Include="ConsoleWriter.cs" />
     <Compile Include="ICompositionRoot.cs" />
     <Compile Include="IConsoleWriter.cs" />
+    <Compile Include="IUserLogin.cs" />
     <Compile Include="ISingletonDemo.cs" />
+    <Compile Include="AOP\PermissionsInterceptor.cs" />
+    <Compile Include="UserLogin.cs" />
     <Compile Include="SingletonDemo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="CompositionRoot.cs" />

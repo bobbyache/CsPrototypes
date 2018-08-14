@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PrototypeApp.AOP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PrototypeApp
 {
-    public interface ICompositionRoot
+    public interface IUserLogin
     {
-        void LogMessage(string message);
+        //[DoNotPerformPermissionCheck]
         void Login();
     }
 }

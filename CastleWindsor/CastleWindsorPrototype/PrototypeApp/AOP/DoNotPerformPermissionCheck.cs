@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrototypeApp
+namespace PrototypeApp.AOP
 {
-    public interface ICompositionRoot
+    public class DoNotPerformPermissionCheck : Attribute
     {
-        void LogMessage(string message);
-        void Login();
     }
 }
