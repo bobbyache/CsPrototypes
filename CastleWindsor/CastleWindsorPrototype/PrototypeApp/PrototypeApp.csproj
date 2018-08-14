@@ -49,7 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleWriter.cs" />
     <Compile Include="ICompositionRoot.cs" />
+    <Compile Include="IConsoleWriter.cs" />
+    <Compile Include="ISingletonDemo.cs" />
+    <Compile Include="SingletonDemo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="CompositionRoot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
