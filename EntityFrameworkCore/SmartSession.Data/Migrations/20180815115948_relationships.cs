@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SmartSession.Data.Migrations
+namespace CygSoft.SmartSession.Data.EF.Migrations
 {
     public partial class relationships : Migration
     {

@@ -8,8 +8,8 @@
     <ProjectGuid>{8A2E3AA6-4B13-43E1-BEEF-BDD2B8767392}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SmartSession.Data</RootNamespace>
-    <AssemblyName>SmartSession.Data</AssemblyName>
+    <RootNamespace>CygSoft.SmartSession.Data.EF</RootNamespace>
+    <AssemblyName>CygSoft.SmartSession.Data.EF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -131,9 +131,9 @@
     <Compile Include="Migrations\20180815115948_relationships.designer.cs">
       <DependentUpon>20180815115948_relationships.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\SamuraiContextModelSnapshot.cs" />
+    <Compile Include="Migrations\SmartSessionModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SamuraiContext.cs" />
+    <Compile Include="SmartSessionContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

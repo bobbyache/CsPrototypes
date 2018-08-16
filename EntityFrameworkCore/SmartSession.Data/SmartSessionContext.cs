@@ -6,20 +6,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SmartSession.Data
+namespace CygSoft.SmartSession.Data.EF
 {
-    public class SamuraiContext : DbContext
+    public class SmartSessionContext : DbContext
     {
         public DbSet<Samurai> Samurais { get; set; }
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<Battle> Battles { get; set; }
 
-        public SamuraiContext()
+        public SmartSessionContext()
         {
                 
         }
         // for dependency injection...
-        public SamuraiContext(DbContextOptions<SamuraiContext> options) : base(options)
+        public SmartSessionContext(DbContextOptions<SmartSessionContext> options) : base(options)
         {
 
         }

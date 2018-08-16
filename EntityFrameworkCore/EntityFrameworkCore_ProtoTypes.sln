@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartSession.Data", "SmartSession.Data\SmartSession.Data.csproj", "{8A2E3AA6-4B13-43E1-BEEF-BDD2B8767392}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CygSoft.SmartSession.Data.EF", "SmartSession.Data\CygSoft.SmartSession.Data.EF.csproj", "{8A2E3AA6-4B13-43E1-BEEF-BDD2B8767392}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartSession.Domain", "SmartSession.Domain\SmartSession.Domain.csproj", "{D1E5EEB2-3976-46E7-8C23-A75522F2394C}"
 EndProject

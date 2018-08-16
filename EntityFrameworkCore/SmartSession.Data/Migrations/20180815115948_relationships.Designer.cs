@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SmartSession.Data;
+using CygSoft.SmartSession.Data.EF;
 
-namespace SmartSession.Data.Migrations
+namespace CygSoft.SmartSession.Data.EF.Migrations
 {
-    [DbContext(typeof(SamuraiContext))]
+    [DbContext(typeof(SmartSessionContext))]
     [Migration("20180815115948_relationships")]
     partial class relationships
     {

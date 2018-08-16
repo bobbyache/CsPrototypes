@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SmartSession.Data;
+using CygSoft.SmartSession.Data.EF;
 
-namespace SmartSession.Data.Migrations
+namespace CygSoft.SmartSession.Data.EF.Migrations
 {
-    [DbContext(typeof(SamuraiContext))]
-    partial class SamuraiContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(SmartSessionContext))]
+    partial class SmartSessionModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
