@@ -123,15 +123,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\20180815112327_initial.cs" />
-    <Compile Include="Migrations\20180815112327_initial.designer.cs">
-      <DependentUpon>20180815112327_initial.cs</DependentUpon>
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="Migrations\20180817083720_initial.cs" />
+    <Compile Include="Migrations\20180817083720_initial.designer.cs">
+      <DependentUpon>20180817083720_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180815115948_relationships.cs" />
-    <Compile Include="Migrations\20180815115948_relationships.designer.cs">
-      <DependentUpon>20180815115948_relationships.cs</DependentUpon>
+    <Compile Include="Migrations\20180817090702_testing.cs" />
+    <Compile Include="Migrations\20180817090702_testing.designer.cs">
+      <DependentUpon>20180817090702_testing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\SmartSessionModelSnapshot.cs" />
+    <Compile Include="Migrations\SmartSessionContextModelSnapshot.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmartSessionContext.cs" />
   </ItemGroup>
@@ -147,6 +148,7 @@
       <Name>SmartSession.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

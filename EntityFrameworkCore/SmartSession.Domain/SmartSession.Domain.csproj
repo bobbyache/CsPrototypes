@@ -40,6 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Records\Exercise.cs" />
+    <Compile Include="Records\Goal.cs" />
+    <Compile Include="Records\GoalPracticeTask.cs" />
+    <Compile Include="Records\PracticeTask.cs" />
+    <Compile Include="Records\Session.cs" />
+    <Compile Include="Records\SessionPracticeTaskDuration.cs" />
+    <Compile Include="Records\SessionPracticeTaskManualProgress.cs" />
+    <Compile Include="Records\SessionPracticeTaskMetronome.cs" />
+    <Compile Include="Records\SessionPracticeTask.cs" />
     <Compile Include="Samurai.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
