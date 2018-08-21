@@ -8,6 +8,11 @@ namespace SmartSession.Domain.Records
 {
     public class Session
     {
+        public Session()
+        {
+            SessionTasks = new List<SessionPracticeTask>();
+        }
+
         public int Id { get; set; }
         public DateTime StartTime { get; set; }
 
