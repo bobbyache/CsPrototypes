@@ -41,14 +41,14 @@ namespace MvvmLight_Prototypes.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
-            SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<GoalListViewModel>();
         }
 
-        public MainViewModel Main
+        public GoalListViewModel Main
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                return ServiceLocator.Current.GetInstance<GoalListViewModel>();
             }
         }
         

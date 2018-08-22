@@ -11,12 +11,65 @@ namespace MvvmLight_Prototypes.Model
 {
     public class GoalListItem : ObservableObject
     {
-        public string Title { get; set; }
-        public int Progress { get; set; }
+        private string title;
+        public string Title
+        {
+            get { return title; }
+            set
+            {
+                if (title != value)
+                {
+                    title = value;
+                    RaisePropertyChanged("Title");
+                }
 
-        public int Days { get; set; }
+            }
+        }
 
-        public bool OnSchedule { get; set; }
+        private int progress;
+        public int Progress
+        {
+            get { return progress; }
+            set
+            {
+                if (progress != value)
+                {
+                    progress = value;
+                    RaisePropertyChanged("Progress");
+                }
+
+            }
+        }
+
+        private int days;
+        public int Days
+        {
+            get { return days; }
+            set
+            {
+                if (days != value)
+                {
+                    days = value;
+                    RaisePropertyChanged("Days");
+                }
+
+            }
+        }
+
+        private bool onSchedule;
+        public bool OnSchedule
+        {
+            get { return onSchedule; }
+            set
+            {
+                if (onSchedule != value)
+                {
+                    onSchedule = value;
+                    RaisePropertyChanged("OnSchedule");
+                }
+                
+            }
+        }
 
         public override void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpression)
         {

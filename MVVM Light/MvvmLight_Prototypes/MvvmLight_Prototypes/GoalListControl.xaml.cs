@@ -16,16 +16,15 @@ using System.Windows.Shapes;
 
 namespace MvvmLight_Prototypes
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+  /// <summary>
+  /// Interaction logic for GoalListControl.xaml
+  /// </summary>
+  public partial class GoalListControl : UserControl
+  {
+    public GoalListControl()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-            this.DataContext = new GoalListViewModel();
-            //this.DataContext = new ViewModelLocator().Main;
-        }
+      InitializeComponent();
+      this.DataContext = new GoalListViewModel();
     }
+  }
 }
