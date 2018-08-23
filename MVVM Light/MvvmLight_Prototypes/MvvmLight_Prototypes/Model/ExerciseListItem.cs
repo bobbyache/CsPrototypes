@@ -8,91 +8,42 @@ namespace MvvmLight_Prototypes.Model
         public string Title
         {
             get { return title; }
-            set
-            {
-                if (title != value)
-                {
-                    title = value;
-                    RaisePropertyChanged(() => Title);
-                }
-            }
-            
+            set { Set(() => Title, ref title, value); }            
         }
 
         private int suggestedDuration;
-
         public int SuggestedDuration
         {
             get { return suggestedDuration; }
-            set
-            {
-                if (suggestedDuration != value)
-                {
-                    suggestedDuration = value;
-                    RaisePropertyChanged(() => SuggestedDuration);
-                }
-            }
+            set { Set(() => SuggestedDuration, ref suggestedDuration, value); }
         }
 
         private int difficultyRating;
-
         public int DifficultyRating
         {
             get { return difficultyRating; }
-            set
-            {
-                if (difficultyRating != value)
-                {
-                    difficultyRating = value;
-                    RaisePropertyChanged(() => DifficultyRating);
-                }
-            }
+            set { Set(() => DifficultyRating, ref difficultyRating, value); }
         }
 
         private int favouriteRating;
-
         public int FavouriteRating
         {
             get { return favouriteRating; }
-            set
-            {
-                if (favouriteRating != value)
-                {
-                    favouriteRating = value;
-                    RaisePropertyChanged(() => FavouriteRating);
-                }
-            }
+            set { Set(() => FavouriteRating, ref favouriteRating, value); }
         }
 
         private bool scribed;
-
         public bool Scribed
         {
             get { return scribed; }
-            set
-            {
-                if (scribed != value)
-                {
-                    scribed = value;
-                    RaisePropertyChanged(() => Scribed);
-                }
-            }
+            set { Set(() => Scribed, ref scribed, value); }
         }
 
-
         private string notes;
-
         public string Notes
         {
             get { return notes; }
-            set
-            {
-                if (notes != value)
-                {
-                    notes = value;
-                    RaisePropertyChanged(() => Notes);
-                }
-            }
+            set { Set(() => Notes, ref notes, value); }
         }
     }
 }
