@@ -70,15 +70,5 @@ namespace MvvmLight_Prototypes.Model
                 
             }
         }
-
-        public override void RaisePropertyChanged<T>(Expression<Func<T>> propertyExpression)
-        {
-            base.RaisePropertyChanged(propertyExpression);
-        }
-
-        public override void RaisePropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            base.RaisePropertyChanged(propertyName);
-        }
     }
 }

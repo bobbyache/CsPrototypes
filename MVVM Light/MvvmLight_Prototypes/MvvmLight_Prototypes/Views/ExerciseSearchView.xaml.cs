@@ -1,5 +1,4 @@
-﻿using MvvmLight_Prototypes.ViewModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,18 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MvvmLight_Prototypes
+namespace MvvmLight_Prototypes.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ExerciseSearchView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ExerciseSearchView : UserControl
     {
-        public MainWindow()
+        public ExerciseSearchView()
         {
             InitializeComponent();
-            //this.DataContext = new GoalListViewModel();
-            //this.DataContext = new ViewModelLocator().Main;
         }
     }
 }

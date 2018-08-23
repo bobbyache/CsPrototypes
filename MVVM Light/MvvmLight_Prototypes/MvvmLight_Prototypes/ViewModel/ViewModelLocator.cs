@@ -42,6 +42,7 @@ namespace MvvmLight_Prototypes.ViewModel
             ////}
 
             SimpleIoc.Default.Register<GoalListViewModel>();
+            SimpleIoc.Default.Register<ExerciseSearchViewModel>();
         }
 
         public GoalListViewModel Main
@@ -51,7 +52,15 @@ namespace MvvmLight_Prototypes.ViewModel
                 return ServiceLocator.Current.GetInstance<GoalListViewModel>();
             }
         }
-        
+
+        public ExerciseSearchViewModel ExerciseSearch
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ExerciseSearchViewModel>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels

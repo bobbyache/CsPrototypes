@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="MvvmLight_Prototypes.Views.ExerciseSearchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converters="clr-namespace:MvvmLight_Prototypes.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:MathConverter x:Key="MathConverter"/>
+        <converters:ProgressForegroundConverter x:Key="ProgressForegroundConverter"/>
+        <converters:OnScheduleConverter x:Key="OnScheduleConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <ToolBar Grid.Row="0">
+                <Button MinWidth="30" Height="30" Content="Add" IsEnabled="True" />
+                <Button MinWidth="30" Height="30" Content="Edit" IsEnabled="True" />
+                <!--Click="Edit_Click" ></Button>-->
+                <Button MinWidth="30" Height="30" Content="Delete" IsEnabled="False" ></Button>
+                <Separator></Separator>
+                <TextBlock VerticalAlignment="Center" Margin="3" MinWidth="60" Text="Keyword Filter:" />
+                <TextBox Name="txtKeywords"  MinWidth="100" />
+                <TextBlock VerticalAlignment="Center" Margin="3" MinWidth="60" Text="Topic Filter:" />
+                <TextBox MinWidth="300" />
+                <Button HorizontalAlignment="Right" MinWidth="30" Height="30" Content="Search" />
+            </ToolBar>
+
+        <ListView Grid.Row="1"  ItemsSource="{Binding ExerciseSearch.ExerciseList, Source={StaticResource Locator}}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="600" Header="Title" DisplayMemberBinding="{Binding Title}"/>
+                    <GridViewColumn Width="80" Header="Duration" DisplayMemberBinding="{Binding SuggestedDuration}"/>
+                    <GridViewColumn Width="80" Header="Difficulty" DisplayMemberBinding="{Binding DifficultyRating}"/>
+                    <GridViewColumn Width="80" Header="Favourite" DisplayMemberBinding="{Binding FavouriteRating}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StatusBar Grid.Row="2">
+                <StatusBarItem Name="statusBarFilePath" Content="" />
+            </StatusBar>
+        </Grid>
+</UserControl>
