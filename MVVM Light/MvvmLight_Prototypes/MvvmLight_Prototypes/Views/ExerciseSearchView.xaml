@@ -10,8 +10,10 @@
         <converters:MathConverter x:Key="MathConverter"/>
         <converters:ProgressForegroundConverter x:Key="ProgressForegroundConverter"/>
         <converters:OnScheduleConverter x:Key="OnScheduleConverter"/>
+        <converters:StarWidthConverter x:Key="StarWidthConverter"/>
+        <converters:TimeDisplayConverter x:Key="TimeDisplayConverter"/>
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
                 <RowDefinition Height="*" />
@@ -34,14 +36,41 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="600" Header="Title" DisplayMemberBinding="{Binding Title}"/>
-                    <GridViewColumn Width="80" Header="Duration" DisplayMemberBinding="{Binding SuggestedDuration}"/>
-                    <GridViewColumn Width="80" Header="Difficulty" DisplayMemberBinding="{Binding DifficultyRating}"/>
-                    <GridViewColumn Width="80" Header="Favourite" DisplayMemberBinding="{Binding FavouriteRating}"/>
+                    <GridViewColumn Width="80" Header="Duration" DisplayMemberBinding="{Binding SuggestedDuration, Converter={StaticResource TimeDisplayConverter}}"/>
+                    <GridViewColumn Width="80" Header="Difficulty">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Width="80" Height="16">
+                                    <Rectangle Opacity=".1" Fill="{DynamicResource FiveStars}" />
+                                    <Rectangle Fill="{DynamicResource FiveStars}">
+                                        <Rectangle.Clip>
+                                            <RectangleGeometry Rect="{Binding DifficultyRating, Converter={StaticResource StarWidthConverter}}" />
+                                        </Rectangle.Clip>
+                                    </Rectangle>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="80" Header="Favourite">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid Width="80" Height="16">
+                                    <Rectangle Opacity=".1" Fill="{DynamicResource FiveStars}" />
+                                    <Rectangle Fill="{DynamicResource FiveStars}">
+                                        <Rectangle.Clip>
+                                            <RectangleGeometry Rect="{Binding FavouriteRating, Converter={StaticResource StarWidthConverter}}" />
+                                        </Rectangle.Clip>
+                                    </Rectangle>
+                                </Grid>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    
                 </GridView>
             </ListView.View>
         </ListView>
         <StatusBar Grid.Row="2">
                 <StatusBarItem Name="statusBarFilePath" Content="" />
-            </StatusBar>
-        </Grid>
+        </StatusBar>
+    </Grid>
 </UserControl>
