@@ -17,6 +17,7 @@
         <Grid.RowDefinitions>
                 <RowDefinition Height="30" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
                 <RowDefinition Height="30" />
             </Grid.RowDefinitions>
             <ToolBar Grid.Row="0">
@@ -32,12 +33,15 @@
                 <Button HorizontalAlignment="Right" MinWidth="30" Height="30" Content="Search" />
             </ToolBar>
 
-        <ListView Grid.Row="1"  ItemsSource="{Binding ExerciseSearch.ExerciseList, Source={StaticResource Locator}}">
+        <ListView Grid.Row="1"  ItemsSource="{Binding ExerciseSearch.ExerciseList, Source={StaticResource Locator}}" 
+                  SelectionMode="Extended"
+                  SelectedItem="{Binding ExerciseSearch.SelectedExercise, Source={StaticResource Locator}}"
+                  >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="600" Header="Title" DisplayMemberBinding="{Binding Title}"/>
                     <GridViewColumn Width="80" Header="Duration" DisplayMemberBinding="{Binding SuggestedDuration, Converter={StaticResource TimeDisplayConverter}}"/>
-                    <GridViewColumn Width="80" Header="Difficulty">
+                    <GridViewColumn Width="100" Header="Difficulty">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid Width="80" Height="16">
@@ -51,14 +55,14 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Width="80" Header="Favourite">
+                    <GridViewColumn Width="100" Header="Practicality">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Grid Width="80" Height="16">
                                     <Rectangle Opacity=".1" Fill="{DynamicResource FiveStars}" />
                                     <Rectangle Fill="{DynamicResource FiveStars}">
                                         <Rectangle.Clip>
-                                            <RectangleGeometry Rect="{Binding FavouriteRating, Converter={StaticResource StarWidthConverter}}" />
+                                            <RectangleGeometry Rect="{Binding PracticalityRating, Converter={StaticResource StarWidthConverter}}" />
                                         </Rectangle.Clip>
                                     </Rectangle>
                                 </Grid>
@@ -69,8 +73,18 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <StatusBar Grid.Row="2">
-                <StatusBarItem Name="statusBarFilePath" Content="" />
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="{Binding ExerciseSearch.SelectedExercise.Title, Source={StaticResource Locator}}" FontWeight="Bold" />
+            <TextBlock Grid.Row="1" Text="{Binding ExerciseSearch.SelectedExercise.Notes, Source={StaticResource Locator}}" />
+        </Grid>
+        <StatusBar Grid.Row="3">
+            <StatusBarItem>
+                <TextBlock Text="" />
+            </StatusBarItem>
         </StatusBar>
     </Grid>
 </UserControl>
