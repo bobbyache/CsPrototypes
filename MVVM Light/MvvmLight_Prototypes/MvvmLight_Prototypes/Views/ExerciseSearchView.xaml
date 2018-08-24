@@ -21,16 +21,13 @@
                 <RowDefinition Height="30" />
             </Grid.RowDefinitions>
             <ToolBar Grid.Row="0">
-            <Button MinWidth="30" Height="30" Content="Add" IsEnabled="True" Command="{Binding ExerciseSearch.AddExerciseCommand, Source={StaticResource Locator}}" />
-                <Button MinWidth="30" Height="30" Content="Edit" IsEnabled="True" />
+            <Button MinWidth="30" Height="30" Content="Add" Command="{Binding ExerciseSearch.AddExerciseCommand, Source={StaticResource Locator}}" />
+            <Button MinWidth="30" Height="30" Content="Edit" Command="{Binding ExerciseSearch.EditExerciseCommand, Source={StaticResource Locator}}" />
                 <!--Click="Edit_Click" ></Button>-->
-                <Button MinWidth="30" Height="30" Content="Delete" IsEnabled="False" ></Button>
-                <Separator></Separator>
-                <TextBlock VerticalAlignment="Center" Margin="3" MinWidth="60" Text="Keyword Filter:" />
-                <TextBox Name="txtKeywords"  MinWidth="100" />
-                <TextBlock VerticalAlignment="Center" Margin="3" MinWidth="60" Text="Topic Filter:" />
-                <TextBox MinWidth="300" />
-                <Button HorizontalAlignment="Right" MinWidth="30" Height="30" Content="Search" />
+            <Button MinWidth="30" Height="30" Content="Delete"  Command="{Binding ExerciseSearch.DeleteExerciseCommand, Source={StaticResource Locator}}"></Button>
+            <Separator></Separator>
+            <TextBox Name="txtKeywords"  MinWidth="300" />
+            <Button HorizontalAlignment="Right" MinWidth="30" Height="30" Content="Search" Command="{Binding ExerciseSearch.SearchCommand, Source={StaticResource Locator}}"/>
             </ToolBar>
 
         <ListView Grid.Row="1"  ItemsSource="{Binding ExerciseSearch.ExerciseList, Source={StaticResource Locator}}" 

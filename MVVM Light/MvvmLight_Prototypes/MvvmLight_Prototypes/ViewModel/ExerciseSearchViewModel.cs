@@ -25,26 +25,17 @@ namespace MvvmLight_Prototypes.ViewModel
 
         public ExerciseSearchViewModel()
         {
-            AddExerciseCommand = new RelayCommand(AddExercise, (() => true));
+            AddExerciseCommand = new RelayCommand(AddExercise, () => true);
+            DeleteExerciseCommand = new RelayCommand(DeleteExercise, () => SelectedExercise != null);
+            EditExerciseCommand = new RelayCommand(EditExercise, () => SelectedExercise != null);
+            SearchCommand = new RelayCommand(Search, true);
         }
 
-        private void AddExercise()
-        {
-            ExerciseList.Add(new ExerciseListItem
-            {
-                Title = $"Added Exercise Item - {DateTime.Now}",
-                DifficultyRating = 3,
-                PracticalityRating = 4,
-                Scribed = false,
-                SuggestedDuration = 120,
-                Notes = $"Here is a sample note - {DateTime.Now}"
-            });
-        }
+        public RelayCommand SearchCommand { get; private set; }
 
-        public RelayCommand AddExerciseCommand
-        {
-            get; private set;
-        }
+        public RelayCommand AddExerciseCommand { get; private set; }
+        public RelayCommand DeleteExerciseCommand { get; private set; }
+        public RelayCommand EditExerciseCommand { get; private set; }
 
         private ExerciseListItem selectedExercise;
         public ExerciseListItem SelectedExercise
@@ -53,6 +44,9 @@ namespace MvvmLight_Prototypes.ViewModel
             set
             {
                 Set(() => SelectedExercise, ref selectedExercise, value);
+                AddExerciseCommand.RaiseCanExecuteChanged();
+                EditExerciseCommand.RaiseCanExecuteChanged();
+                DeleteExerciseCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -67,5 +61,36 @@ namespace MvvmLight_Prototypes.ViewModel
             new ExerciseListItem { Title = "Guitar Solo School: Beginner Lead Guitar Method - Chapter 5: Legato - One Fret Pull Off - 5i",
                 DifficultyRating = 3, PracticalityRating = 4, Scribed = false, SuggestedDuration = 120  }
         };
+
+        private void Search()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void EditExercise()
+        {
+            SelectedExercise.Title = $"Edited - {DateTime.Now}";
+        }
+
+        private void DeleteExercise()
+        {
+            ExerciseList.Remove(SelectedExercise);
+        }
+
+        private void AddExercise()
+        {
+            var exercise = new ExerciseListItem
+            {
+                Title = $"Added Exercise Item - {DateTime.Now}",
+                DifficultyRating = 3,
+                PracticalityRating = 4,
+                Scribed = false,
+                SuggestedDuration = 120,
+                Notes = $"Here is a sample note - {DateTime.Now}"
+            };
+
+            ExerciseList.Add(exercise);
+            SelectedExercise = exercise;
+        }
     }
 }
