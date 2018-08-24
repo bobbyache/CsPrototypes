@@ -21,7 +21,7 @@
                 <RowDefinition Height="30" />
             </Grid.RowDefinitions>
             <ToolBar Grid.Row="0">
-                <Button MinWidth="30" Height="30" Content="Add" IsEnabled="True" />
+            <Button MinWidth="30" Height="30" Content="Add" IsEnabled="True" Command="{Binding ExerciseSearch.AddExerciseCommand, Source={StaticResource Locator}}" />
                 <Button MinWidth="30" Height="30" Content="Edit" IsEnabled="True" />
                 <!--Click="Edit_Click" ></Button>-->
                 <Button MinWidth="30" Height="30" Content="Delete" IsEnabled="False" ></Button>

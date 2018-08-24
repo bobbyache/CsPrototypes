@@ -1,5 +1,7 @@
 ﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using MvvmLight_Prototypes.Model;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
@@ -21,6 +23,28 @@ namespace MvvmLight_Prototypes.ViewModel
         //    ...
         //}
 
+        public ExerciseSearchViewModel()
+        {
+            AddExerciseCommand = new RelayCommand(AddExercise, (() => true));
+        }
+
+        private void AddExercise()
+        {
+            ExerciseList.Add(new ExerciseListItem
+            {
+                Title = $"Added Exercise Item - {DateTime.Now}",
+                DifficultyRating = 3,
+                PracticalityRating = 4,
+                Scribed = false,
+                SuggestedDuration = 120,
+                Notes = $"Here is a sample note - {DateTime.Now}"
+            });
+        }
+
+        public RelayCommand AddExerciseCommand
+        {
+            get; private set;
+        }
 
         private ExerciseListItem selectedExercise;
         public ExerciseListItem SelectedExercise
