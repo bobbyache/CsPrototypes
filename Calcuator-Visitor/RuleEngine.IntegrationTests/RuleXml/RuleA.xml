@@ -1,0 +1,13 @@
+﻿<ComplianceRuleConfiguration type="Symmetrix.Compliance.RuleEngine.GenericComplianceRule, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" use-entire-instrument_context="false" warnings="false">
+  <Aggregator type="Symmetrix.Compliance.RuleEngine.Rules.Aggregators.ByIssuer, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" short-name="byissuer" />
+  <ResultCalculator type="Symmetrix.Compliance.RuleEngine.Rules.ResultCalculators.Percentage, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" short-name="percentage">
+    <Calculator type="Symmetrix.Compliance.RuleEngine.Rules.Calculators.Plus, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" short-name="plus">
+      <Calculator type="Symmetrix.Compliance.RuleEngine.Rules.Calculators.PortfolioHoldingWithContext, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" short-name="portfolioholdingwithcontext" field="SettledMarketValue" position-type="All" use-underlying-instruments="false" attribute-type-name="" absolute-holdings="false" saved-context-id="1187" />
+      <Calculator type="Symmetrix.Compliance.RuleEngine.Rules.Calculators.PortfolioHoldingWithContext, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" short-name="portfolioholdingwithcontext" field="TradedMarketValue" position-type="All" use-underlying-instruments="false" attribute-type-name="" absolute-holdings="false" saved-context-id="1186" />
+    </Calculator>
+    <Calculator type="Symmetrix.Compliance.RuleEngine.Rules.Calculators.PortfolioAttributeValue, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" short-name="portfolioattributevalue" attribute-table="Portfolio" attribute-type="NAV" />
+  </ResultCalculator>
+  <BreachCalculator type="Symmetrix.Compliance.RuleEngine.Rules.BreachCalculators.UpperLimit, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" short-name="upperlimit" use-entire-context="false">
+    <Calculator type="Symmetrix.Compliance.RuleEngine.Rules.Calculators.Value, Symmetrix.Compliance.Generic,  Culture=neutral, PublicKeyToken=null" short-name="value" value="20" />
+  </BreachCalculator>
+</ComplianceRuleConfiguration>

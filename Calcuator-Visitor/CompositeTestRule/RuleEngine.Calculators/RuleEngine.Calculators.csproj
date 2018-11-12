@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E7FCABD0-20EA-44B2-9A61-74AF5727970D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RuleEngine.Calculators</RootNamespace>
+    <AssemblyName>RuleEngine.Calculators</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Calculators\Base\BaseCalculator.cs" />
+    <Compile Include="Calculators\CalculatorMapper.cs" />
+    <Compile Include="Calculators\Custom\BenchMarkCalculator.cs" />
+    <Compile Include="Calculators\Binary\AdditionCalculator.cs" />
+    <Compile Include="Calculators\Binary\DivisionCalculator.cs" />
+    <Compile Include="Calculators\Custom\PortfolioAttributeValueCalculator.cs" />
+    <Compile Include="Calculators\Custom\PortfolioHoldingWithContextCalculator.cs" />
+    <Compile Include="Calculators\Logical\EqualCalculator.cs" />
+    <Compile Include="Calculators\Logical\GreaterThanCalculator.cs" />
+    <Compile Include="Calculators\Logical\GreaterThanOrEqualCalculator.cs" />
+    <Compile Include="Calculators\Binary\MultiplicationCalculator.cs" />
+    <Compile Include="Calculators\Logical\LessThanCalculator.cs" />
+    <Compile Include="Calculators\Logical\LessThanOrEqualCalculator.cs" />
+    <Compile Include="Calculators\Logical\NotEqualCalculator.cs" />
+    <Compile Include="Calculators\Aggregate\AverageCalculator.cs" />
+    <Compile Include="Calculators\Aggregate\CountCalculator.cs" />
+    <Compile Include="Calculators\Aggregate\SumCalculator.cs" />
+    <Compile Include="Calculators\Set\SetOperations.cs" />
+    <Compile Include="Calculators\Unary\PercentageCalculator.cs" />
+    <Compile Include="Calculators\Unary\SingleValueCalculator.cs" />
+    <Compile Include="Data\BenchmarkData.cs" />
+    <Compile Include="Data\IssuerData.cs" />
+    <Compile Include="Data\PortfolioInstrumentData.cs" />
+    <Compile Include="Calculators\Custom\HeldInstrumentCountCalculator.cs" />
+    <Compile Include="Calculators\Custom\HeldIssuerCountCalculator.cs" />
+    <Compile Include="Calculators\Custom\InstrumentInBenchmarkCalculator.cs" />
+    <Compile Include="Calculators\Custom\InstrumentLikeListCountCalculator.cs" />
+    <Compile Include="Calculators\Custom\PortfolioHoldingCalculator.cs" />
+    <Compile Include="Data\InstrumentData.cs" />
+    <Compile Include="Data\PortfolioData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\PortfolioInstrumentTotalsData.cs" />
+    <Compile Include="Calculators\Binary\SubtractionCalculator.cs" />
+    <Compile Include="Calculators\RuleCalculatorFactory.cs" />
+    <Compile Include="Calculators\Custom\TotalPortfolioHoldingCalculator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\RuleEngine.Calculators.Infrastructure\RuleEngine.Calculators.Infrastructure.csproj">
+      <Project>{06cf646a-ecb5-412e-aa2c-5aa96542c4a9}</Project>
+      <Name>RuleEngine.Calculators.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
