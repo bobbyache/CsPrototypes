@@ -61,8 +61,10 @@
     <Compile Include="LinqToObjects\Code\LinqPartitioning.cs" />
     <Compile Include="LinqToObjects\Code\LinqSelect.cs" />
     <Compile Include="LinqToObjects\Code\LinqSelectMany.cs" />
+    <Compile Include="LinqToObjects\Code\LinqSetOperators.cs" />
     <Compile Include="LinqToObjects\Comparers\MyFounderNumberComparer.cs" />
     <Compile Include="LinqToObjects\Comparers\MyVowelToConsonantRatioComparer.cs" />
+    <Compile Include="LinqToObjects\Comparers\StringLengthEqualityComparer.cs" />
     <Compile Include="LinqToObjects\Entities\Employee.cs" />
     <Compile Include="LinqToObjects\Entities\EmployeeOptionEntry.cs" />
     <Compile Include="LinqToObjects\Entities\HrEmployee.cs" />
@@ -73,6 +75,8 @@
     <Compile Include="LinqToXml\XmlFunctions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThinkYouCanLinq\JoinGroupByJoin.cs" />
+    <Compile Include="ThinkYouCanLinq\LinqGenerators.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LinqToSql\NorthwindDb\northwindmap.xml" />

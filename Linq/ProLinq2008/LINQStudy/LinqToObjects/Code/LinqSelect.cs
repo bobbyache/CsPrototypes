@@ -54,6 +54,8 @@ namespace LINQStudy.LinqToObjects
                 Index = i,
                 LastName = p
             }).OrderBy(p => p.LastName);
+
+            
             foreach (var item in nameObjs)
                 Console.WriteLine("{0}. {1}", item.Index + 1, item.LastName);
         }

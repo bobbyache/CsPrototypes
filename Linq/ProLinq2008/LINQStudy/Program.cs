@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LINQStudy.LinqToObjects;
+using LINQStudy.LinqToObjects.Code;
 using LINQStudy.LinqToSql;
 using LINQStudy.LinqToXml;
+using LINQStudy.ThinkYouCanLinq;
 
 namespace LINQStudy
 {
@@ -77,7 +79,7 @@ namespace LINQStudy
 
             //NodeValueExtraction
             //XmlFunctions.NodeValueExtractionOptions();
-            
+
             //XmlFunctions.TheHalloweenProblem();
             //XmlFunctions.AvoidTheHalloweenProblem();
 
@@ -93,12 +95,37 @@ namespace LINQStudy
             //XmlFunctions.LoadingDocumentsAndElements();
 
             //XmlFunctions.ParseStringToXmlElement();
-           // XmlFunctions.XmlTraversalSingle();
+            // XmlFunctions.XmlTraversalSingle();
             //XmlFunctions.XmlTraversalMultiple();
             //XmlFunctions.XmlTraversalMultiple2();
 
-            XmlFunctions.XmlTraversalUpDownRecursive();
+            //XmlFunctions.XmlTraversalUpDownRecursive();
             //XmlFunctions.XmlTraversalForwardBack();
+
+
+            ////-------------------------------------------------
+            //// Think you can linq
+            ////-------------------------------------------------
+
+            //JoinGroupByJoin.InnerJoin();
+            //JoinGroupByJoin.GroupJoin();
+            //JoinGroupByJoin.ToLookup();
+            //JoinGroupByJoin.LeftOuterJoin();
+            //LinqGenerators.GenerateRandomNumbers();
+
+            // --------------------------------------------------
+
+            //string path = "base/../subfolder/childfolder";
+            //var parts = path.Split(new char[] { '/' });
+            //var result = parts.SkipWhile(p => p != "..").Skip(1);
+
+            //foreach (var part in result)
+            //{
+            //    Console.WriteLine(part);
+            //}
+
+            //LinqSetOperators.ExceptSetOperator();
+            LinqSetOperators.ExceptSetOperatorWithEqualityComparer();
 
             Console.ReadKey();
         }
